@@ -1,0 +1,50 @@
+#define PY_SSIZE_T_CLEAN
+#include <stdio.h>
+#include <dlfcn.h>
+#include <Python.h>
+#include <pygobject.h>
+#include <libxfce4panel/libxfce4panel.h>
+
+static void start_menu_construct(XfcePanelPlugin *plugin) {
+    //fprintf(stderr, "[C-WRAPPER] start_menu_construct entered!\n");
+    //fflush(stderr);
+
+    dlopen("libpython3.13.so.1.0", RTLD_LAZY | RTLD_GLOBAL);
+
+    if (!Py_IsInitialized()) {
+        Py_Initialize();
+    }
+    pygobject_init(-1, -1, -1);
+    if (PyErr_Occurred()) {
+        PyErr_Print();
+        return;
+    }
+
+    PyRun_SimpleString("import sys; sys.path.insert(0, '/home/user/wrk/xfce-start-menu')");
+
+    PyObject *pModule = PyImport_ImportModule("start-menu-sys");
+    if (pModule != NULL) {
+        PyObject *pFunc = PyObject_GetAttrString(pModule, "setup_plugin");
+        if (pFunc && PyCallable_Check(pFunc)) {
+            PyObject *pPluginObj = pygobject_new(G_OBJECT(plugin));
+            PyObject *pArgs = PyTuple_Pack(1, pPluginObj);
+            PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
+            if (!pValue) {
+                PyErr_Print();
+            }
+            Py_XDECREF(pValue);
+            Py_DECREF(pArgs);
+            Py_DECREF(pPluginObj);
+        } else {
+            PyErr_Print();
+        }
+        Py_XDECREF(pFunc);
+        Py_DECREF(pModule);
+    } else {
+        PyErr_Print();
+    }
+    fflush(stderr);
+    fflush(stdout);
+}
+
+XFCE_PANEL_PLUGIN_REGISTER(start_menu_construct)
