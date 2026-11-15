@@ -11,15 +11,19 @@ Currently jsut Minimum Viable Product.
 ## How to build
 
 ```
-make
-make pot
-make po
-make mo
-make  desktop
+$ make plugin
+$ make pot
+$ make po
+$ make mo
+$ make desktop
 ```
 or 
 ```
-make && make pot po mo desktop
+$ make plugin pot po mo desktop
+```
+or
+```
+$ make all
 ```
 
 ## How to install

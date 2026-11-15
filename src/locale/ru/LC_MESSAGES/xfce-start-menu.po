@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 20:12+0500\n"
+"POT-Creation-Date: 2026-11-15 21:20+0500\n"
 "PO-Revision-Date: 2026-11-15 18:46+0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,86 +18,86 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: start-menu-sys.py:41
+#: src/start-menu-sys.py:41
 msgid "Terminal"
 msgstr "Терминал"
 
-#: start-menu-sys.py:42
+#: src/start-menu-sys.py:42
 msgid "Task Manager"
 msgstr "Диспетчер задач"
 
-#: start-menu-sys.py:43
+#: src/start-menu-sys.py:43
 msgid "System Settings"
 msgstr "Настройки системы"
 
-#: start-menu-sys.py:44
+#: src/start-menu-sys.py:44
 msgid "Display Settings"
 msgstr "Параметры экрана"
 
-#: start-menu-sys.py:45
+#: src/start-menu-sys.py:45
 msgid "Network Connections"
 msgstr "Сетевые соединения"
 
-#: start-menu-sys.py:46
+#: src/start-menu-sys.py:46
 msgid "Power Manager"
 msgstr "Управление питанием"
 
-#: start-menu-sys.py:54
+#: src/start-menu-sys.py:54
 msgid "Left-click"
 msgstr "Left-click"
 
-#: start-menu-sys.py:54
+#: src/start-menu-sys.py:54
 msgid "Applications Menu"
 msgstr "Меню приложений"
 
-#: start-menu-sys.py:55 start-menu-sys.py:56
+#: src/start-menu-sys.py:55 src/start-menu-sys.py:56
 msgid "Right-click"
 msgstr "Right-click"
 
-#: start-menu-sys.py:55
+#: src/start-menu-sys.py:55
 msgid "System Menu"
 msgstr "Системное меню"
 
-#: start-menu-sys.py:56
+#: src/start-menu-sys.py:56
 msgid "Panel Preferences"
 msgstr "Настройки панели"
 
-#: start-menu-app.py:131
+#: src/start-menu-app.py:131
 msgid "Lock Screen"
 msgstr "Блокировка экрана"
 
-#: start-menu-app.py:132
+#: src/start-menu-app.py:132
 msgid "Log Out"
 msgstr "Выйти"
 
-#: start-menu-app.py:134
+#: src/start-menu-app.py:134
 msgid "Suspend"
 msgstr "Ждущий режим"
 
-#: start-menu-app.py:135
+#: src/start-menu-app.py:135
 msgid "Restart"
 msgstr "Перезагрузить"
 
-#: start-menu-app.py:136
+#: src/start-menu-app.py:136
 msgid "Shut Down"
 msgstr "Выключить"
 
-#: start-menu-app.py:526
+#: src/start-menu-app.py:526
 msgid "Path not found"
 msgstr "Путь не найден"
 
-#: start-menu-app.py:527
+#: src/start-menu-app.py:527
 msgid "No ID"
 msgstr "Нет ID"
 
-#: start-menu-app.py:528
+#: src/start-menu-app.py:528
 msgid "File:"
 msgstr "Файл:"
 
-#: start-menu.desktop.in:3
+#: src/start-menu.desktop.in:3
 msgid "Start Menu"
 msgstr "Меню «Пуск»"
 
-#: start-menu.desktop.in:4
+#: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
 msgstr "Настраиваемое меню «Пуск» и системное всплывающее меню Win+X"
