@@ -40,6 +40,24 @@ as result:
 -rw-r--r-- 1 root root  1491 ноя 15 19:28 /usr/share/locale/ru/LC_MESSAGES/xfce-start-menu.mo
 ```
 
+## Setup shortkeys
+
+- Get plugin number on xfce panel:
+```
+$ xfconf-query -c xfce4-panel -p /plugins -l -v | grep start-menu
+/plugins/plugin-14  start-menu
+```
+
+- Keyboard settings
+
+Go to Settings -> Keyboard -> Keys -> Add 
+```
+xfce4-panel --plugin-event=start-menu-14:start:bool:true   Win
+```
+```
+xfce4-panel --plugin-event=start-menu-14:winx:bool:true    Win+X
+```
+
 
 ### Misc (under develop)
 
