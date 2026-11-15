@@ -1,11 +1,43 @@
+import os
 import gi
 import json
-import os
 import sys
+import gettext
+import locale
+import subprocess
 gi.require_version('Gtk', '3.0')
 gi.require_version('Garcon', '1.0')
 from pathlib import Path
 from gi.repository import Gtk, Gdk, GLib, Garcon, Gio
+
+
+APP_DOMAIN = "xfce-start-menu"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+LOCAL_LOCALE_DIR = os.path.join(BASE_DIR, "locale")
+SYS_LOCALE_DIR = "/usr/share/locale"
+if os.path.isdir(LOCAL_LOCALE_DIR):
+    LOCALE_DIR = LOCAL_LOCALE_DIR
+else:
+    LOCALE_DIR = SYS_LOCALE_DIR
+try:
+    locale.setlocale(locale.LC_ALL, "")
+except locale.Error:
+    pass
+
+_translation = gettext.translation(APP_DOMAIN, localedir=LOCALE_DIR, fallback=True)
+_ = _translation.gettext
+
+
+def get_version():
+    ver_file = os.path.join(BASE_DIR, "VERSION")
+    try:
+        with open(ver_file, "r", encoding="utf-8") as f:
+            return f.read().strip()
+    except OSError:
+        return "0.0.0"
+
+APP_VERSION = get_version()
+
 
 class XfceStartMenu(Gtk.Window):
     def __init__(self):
@@ -53,6 +85,80 @@ class XfceStartMenu(Gtk.Window):
 
         self.setup_ui()
         self.load_menu_data()
+
+    def setup_ui(self):
+        main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+        main_box.set_margin_top(10)
+        main_box.set_margin_bottom(10)
+        main_box.set_margin_start(10)
+        main_box.set_margin_end(10)
+        self.add(main_box)
+
+        self.search_entry = Gtk.SearchEntry()
+        self.search_entry.set_placeholder_text("Searching for apps...")
+        self.search_entry.connect("search-changed", self.on_search_changed)
+        main_box.pack_start(self.search_entry, False, False, 0)
+        
+        content_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+        main_box.pack_start(content_box, True, True, 0)
+
+        self.cat_list = Gtk.ListBox()
+        self.cat_list.connect("row-selected", self.on_category_selected)
+        self.cat_scroll = Gtk.ScrolledWindow()
+        self.cat_scroll.set_min_content_width(170)
+        self.cat_scroll.add(self.cat_list)
+        content_box.pack_start(self.cat_scroll, False, True, 0)
+        
+        self.app_list = Gtk.ListBox()
+        self.app_list.set_activate_on_single_click(True)
+        self.app_list.connect("row-activated", self.on_app_activated)
+        app_scroll = Gtk.ScrolledWindow()
+        app_scroll.add(self.app_list)
+        content_box.pack_start(app_scroll, True, True, 0)
+
+        # bottom line for actions
+        self.footer_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        self.footer_box.set_margin_top(2)
+        main_box.pack_end(self.footer_box, False, False, 0)
+
+        # bottom line for sessionand version
+        self.footer_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
+        self.footer_box.set_margin_top(2)
+        main_box.pack_end(self.footer_box, False, False, 0)
+
+        # list of session action
+        session_actions = [
+            ("system-lock-screen", _("Lock Screen"), ["xflock4"]),
+            ("system-log-out",     _("Log Out"),     ["xfce4-session-logout", "--logout"]),
+            None, 
+            ("system-suspend",     _("Suspend"),     ["xfce4-session-logout", "--suspend"]),
+            ("system-reboot",      _("Restart"),     ["xfce4-session-logout", "--reboot"]),
+            ("system-shutdown",    _("Shut Down"),   ["xfce4-session-logout", "--halt"]),
+        ]
+
+        for item in session_actions:
+            if item is None:
+                sep = Gtk.Separator(orientation=Gtk.Orientation.VERTICAL)
+                sep.set_margin_top(4)
+                sep.set_margin_bottom(4)
+                sep.set_margin_start(2)
+                sep.set_margin_end(2)
+                self.footer_box.pack_start(sep, False, False, 0)
+                continue
+
+            icon_name, tooltip, cmd = item
+            btn = Gtk.Button.new_from_icon_name(icon_name, Gtk.IconSize.MENU)
+            btn.set_relief(Gtk.ReliefStyle.NONE)
+            btn.set_tooltip_text(tooltip)
+            btn.connect("clicked", self.on_session_action_clicked, cmd)
+            self.footer_box.pack_start(btn, False, False, 0)
+
+        ver_label = Gtk.Label()
+        ver_label.set_markup(f"<small><span alpha='55%'>Ver. {APP_VERSION}</span></small>")
+        ver_label.set_valign(Gtk.Align.CENTER)
+        ver_label.set_margin_end(4)
+        self.footer_box.pack_end(ver_label, False, False, 0)
+
 
     def log(self, msg):
         pass
@@ -176,7 +282,6 @@ class XfceStartMenu(Gtk.Window):
             )
 
     def on_leave_notify(self, widget, event):
-        # Реагируем ТОЛЬКО на реальный выход курсора (NORMAL), игнорируя GRAB/UNGRAB
         if event.mode == Gdk.CrossingMode.NORMAL and event.detail != Gdk.NotifyType.INFERIOR:
             window = self.get_window()
             if window:
@@ -188,7 +293,6 @@ class XfceStartMenu(Gtk.Window):
         return False
 
     def on_enter_notify(self, widget, event):
-        # Реагируем ТОЛЬКО на реальный вход курсора (NORMAL), игнорируя GRAB/UNGRAB
         if event.mode == Gdk.CrossingMode.NORMAL and event.detail != Gdk.NotifyType.INFERIOR:
             self.grab_seat(event, cursor=None)
         return False
@@ -204,7 +308,7 @@ class XfceStartMenu(Gtk.Window):
                 True,
                 cursor,
                 event,
-                lambda s, w, d: w.show(),  # GdkSeatGrabPrepareFunc: убирает Gdk-CRITICAL
+                lambda s, w, d: w.show(),
                 None
             )
             self.log(f"grab_seat -> status={status.value_nick}")
@@ -299,20 +403,19 @@ class XfceStartMenu(Gtk.Window):
         monitor = display.get_monitor_at_point(btn_x, btn_y)
         wa = monitor.get_workarea() if monitor else None
 
-        # Определяем край экрана по XfceScreenPosition (nw-h, n, ne-h, sw-h, s, se-h, w, nw-v, sw-v, e, ne-v, se-v)
+        # XfceScreenPosition (nw-h, n, ne-h, sw-h, s, se-h, w, nw-v, sw-v, e, ne-v, se-v)
         is_top = pos in ("n", "nw-h", "ne-h") or "top" in pos
         is_left = pos in ("w", "nw-v", "sw-v") or "left" in pos
         is_right = pos in ("e", "ne-v", "se-v") or "right" in pos
 
-        # 1. Вертикальная привязка и свободный край (north / south)
+        # 1. Vertical connection (north / south)
         if is_top:
-            # Панель сверху -> якорь сверху, тянем только вниз (south)
+            # Panel on top -> anchor on top, resize only down (south)
             x = btn_x
             y = btn_y + btn_h
             self.expand_v = "south"
         elif is_left or is_right:
             x = (btn_x + btn_w) if is_left else (btn_x - win_w)
-            # Если кнопка в нижней половине экрана или меню не влезает вниз -> выравниваем по нижнему краю кнопки и тянем ВВЕРХ
             if wa and ((btn_y + win_h > wa.y + wa.height) or (btn_y > wa.y + wa.height // 2)):
                 y = btn_y + btn_h - win_h
                 self.expand_v = "north"
@@ -320,25 +423,25 @@ class XfceStartMenu(Gtk.Window):
                 y = btn_y
                 self.expand_v = "south"
         else:
-            # Панель снизу (s, sw-h, se-h) -> якорь снизу, тянем только вверх (north)
+            # Panel on bottom (s, sw-h, se-h) -> anchor on bottom, resize only up (north)
             x = btn_x
             y = btn_y - win_h
             self.expand_v = "north"
 
-        # 2. Горизонтальная привязка и свободный край (east / west)
+        # 2. Horiz commectyion (east / west)
         if is_right:
             self.expand_h = "west"
         elif is_left:
             self.expand_h = "east"
         else:
-            # Если кнопка в правой половине экрана (или меню не влезает вправо) -> тянем влево (west)
+            # button on right side of screen -> resize only left (west)
             if wa and (btn_x + win_w > wa.x + wa.width) and (btn_x > wa.x + wa.width // 2):
                 x = btn_x + btn_w - win_w
                 self.expand_h = "west"
             else:
                 self.expand_h = "east"
 
-        # Защита от выхода за пределы монитора
+        # guard four out of screen
         if wa:
             x = max(wa.x, min(x, wa.x + wa.width - win_w))
             y = max(wa.y, min(y, wa.y + wa.height - win_h))
@@ -356,7 +459,7 @@ class XfceStartMenu(Gtk.Window):
 
         self.show_all()
 
-        # Повторяем позиционирование ПОСЛЕ show_all(), чтобы XFWM4 не поставил окно по центру
+        # retry position after show_all(), to ensure that XFWM4 do not put window in center of screen
         if anchor is not None:
             self.position_near_button(*anchor)
         else:
@@ -368,36 +471,6 @@ class XfceStartMenu(Gtk.Window):
     def on_key_press(self, widget, event):
         if event.keyval == Gdk.KEY_Escape:
             self.hide_menu()
-
-    def setup_ui(self):
-        main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
-        main_box.set_margin_top(10)
-        main_box.set_margin_bottom(10)
-        main_box.set_margin_start(10)
-        main_box.set_margin_end(10)
-        self.add(main_box)
-
-        self.search_entry = Gtk.SearchEntry()
-        self.search_entry.set_placeholder_text("Searching for apps...")
-        self.search_entry.connect("search-changed", self.on_search_changed)
-        main_box.pack_start(self.search_entry, False, False, 0)
-
-        content_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-        main_box.pack_start(content_box, True, True, 0)
-
-        self.cat_list = Gtk.ListBox()
-        self.cat_list.connect("row-selected", self.on_category_selected)
-        self.cat_scroll = Gtk.ScrolledWindow()
-        self.cat_scroll.set_min_content_width(170)
-        self.cat_scroll.add(self.cat_list)
-        content_box.pack_start(self.cat_scroll, False, True, 0)
-
-        self.app_list = Gtk.ListBox()
-        self.app_list.set_activate_on_single_click(True)
-        self.app_list.connect("row-activated", self.on_app_activated)
-        app_scroll = Gtk.ScrolledWindow()
-        app_scroll.add(self.app_list)
-        content_box.pack_start(app_scroll, True, True, 0)
 
     def load_menu_data(self):
         try:
@@ -450,9 +523,9 @@ class XfceStartMenu(Gtk.Window):
             app_row.app_item = app_item
 
             gfile = app_item.get_file()
-            full_path = gfile.get_path() if gfile else "Path not found"
-            desktop_id = app_item.get_desktop_id() or "No ID"
-            app_row.set_tooltip_text(f"ID: {desktop_id}\nFile: {full_path}")
+            full_path = gfile.get_path() if gfile else _("Path not found")
+            desktop_id = app_item.get_desktop_id() or _("No ID")
+            app_row.set_tooltip_text(f"ID:   {desktop_id}\n{_('File:')} {full_path}")
 
             self.app_list.add(app_row)
 
@@ -489,8 +562,16 @@ class XfceStartMenu(Gtk.Window):
                     app_info = Gio.AppInfo.create_from_commandline(clean_cmd, None, 0)
                     app_info.launch(None, None)
                 except Exception as e:
-                    print(f"Ошибка запуска '{clean_cmd}': {e}", flush=True)
+                    print(f"Run error '{clean_cmd}': {e}", flush=True)
                 self.hide_menu()
+
+    def on_session_action_clicked(self, button, cmd):
+        self.hide_menu()
+        try:
+            subprocess.Popen(cmd)
+        except Exception as e:
+            print(f"Failed to execute {cmd}: {e}")
+
 
 class StartMenuApp(Gtk.Application):
     def __init__(self):

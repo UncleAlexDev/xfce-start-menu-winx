@@ -1,0 +1,9 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Name=Start Menu
+Comment=Custom Start Menu and Win+X system popup
+Icon=xfce4-panel-menu
+X-XFCE-Module=startmenu
+X-XFCE-Internal=FALSE
+X-XFCE-API=2.0
+

@@ -5,11 +5,18 @@
 #include <pygobject.h>
 #include <libxfce4panel/libxfce4panel.h>
 
-static void start_menu_construct(XfcePanelPlugin *plugin) {
-    //fprintf(stderr, "[C-WRAPPER] start_menu_construct entered!\n");
-    //fflush(stderr);
+#ifndef PY_LIB_NAME
+#define PY_LIB_NAME "libpython3.13.so.1.0"
+#endif
 
-    dlopen("libpython3.13.so.1.0", RTLD_LAZY | RTLD_GLOBAL);
+#ifndef PLUGIN_DIR
+#define PLUGIN_DIR "/usr/share/xfce-start-menu"
+#endif
+
+
+static void start_menu_construct(XfcePanelPlugin *plugin) {
+
+	dlopen(PY_LIB_NAME, RTLD_LAZY | RTLD_GLOBAL);
 
     if (!Py_IsInitialized()) {
         Py_Initialize();
@@ -20,7 +27,7 @@ static void start_menu_construct(XfcePanelPlugin *plugin) {
         return;
     }
 
-    PyRun_SimpleString("import sys; sys.path.insert(0, '/home/user/wrk/xfce-start-menu')");
+	PyRun_SimpleString("import sys; sys.path.insert(0, '" PLUGIN_DIR "')");
 
     PyObject *pModule = PyImport_ImportModule("start-menu-sys");
     if (pModule != NULL) {

@@ -1,31 +1,62 @@
+import os
 import gi
 import json
-import os
 import subprocess
+import gettext
+import locale
 gi.require_version('Gtk', '3.0')
 gi.require_version('Libxfce4panel', '2.0')
 from gi.repository import Gtk, Gdk, GLib, Gio, Libxfce4panel
 
+
+APP_DOMAIN = "xfce-start-menu"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+LOCAL_LOCALE_DIR = os.path.join(BASE_DIR, "locale")
+SYS_LOCALE_DIR = "/usr/share/locale"
+if os.path.isdir(LOCAL_LOCALE_DIR):
+    LOCALE_DIR = LOCAL_LOCALE_DIR
+else:
+    LOCALE_DIR = SYS_LOCALE_DIR
+try:
+    locale.setlocale(locale.LC_ALL, "")
+except locale.Error:
+    pass
+
+_translation = gettext.translation(APP_DOMAIN, localedir=LOCALE_DIR, fallback=True)
+_ = _translation.gettext
+
+
+def get_version():
+    ver_file = os.path.join(BASE_DIR, "VERSION")
+    try:
+        with open(ver_file, "r", encoding="utf-8") as f:
+            return f.read().strip()
+    except OSError:
+        return "0.0.0"
+
+APP_VERSION = get_version()
+
 def setup_plugin(plugin):
-    # 1. Конфигурация системного меню Win+X (объявляем в начале)
     winx_items = [
-        ("Терминал", "xfce4-terminal"),
-        ("Диспетчер задач", "xfce4-taskmanager"),
-        ("Настройки системы", "xfce4-settings-manager"),
-        ("Параметры экрана", "xfce4-display-settings"),
-        ("Сетевые соединения", "nm-connection-editor"),
-        ("Управление питанием", "xfce4-power-manager-settings"),
+        (_("Terminal"),             "xfce4-terminal"),
+        (_("Task Manager"),         "xfce4-taskmanager"),
+        (_("System Settings"),      "xfce4-settings-manager"),
+        (_("Display Settings"),     "xfce4-display-settings"),
+        (_("Network Connections"),  "nm-connection-editor"),
+        (_("Power Manager"),        "xfce4-power-manager-settings"),
     ]
 
-    # 2. Создание кнопки и иконки
     button = Libxfce4panel.panel_create_toggle_button()
-    button.set_tooltip_markup(
+
+    tooltip_text = (
         "<tt>"
-        "Left-click  - <b>Меню приложений</b> [Win]\n"
-        "Right-click - <b>Системное меню</b>  [Win+X]\n"
-        "Shift+Right-click - <b>Настройка панели</b>"
+        f"<span alpha='65%'>Start Menu Ver. {APP_VERSION}</span>\n"
+        f"{_('Left-click')}        - <b>{_('Applications Menu')}</b> [Win]\n"
+        f"{_('Right-click')}       - <b>{_('System Menu')}</b>  [Win+X]\n"
+        f"Shift+{_('Right-click')} - <b>{_('Panel Preferences')}</b>"
         "</tt>"
     )
+    button.set_tooltip_markup(tooltip_text)
 
     icon_theme = Gtk.IconTheme.get_default()
     for name in ["xfce4-panel-menu", "start-here", "applications-system", "emblem-system"]:
@@ -124,24 +155,12 @@ def setup_plugin(plugin):
         except Exception:
             env = os.environ.copy()
             if anchor:
-                # Передаем координаты кнопки прямо в окружении при холодном старте
                 env["START_MENU_ANCHOR"] = json.dumps(anchor)
+            app_script = os.path.join(BASE_DIR, "start-menu-app.py")
             subprocess.Popen(
-                ["python3", "/home/user/wrk/xfce-start-menu/start-menu-app.py"],
+                ["python3", app_script],
                 env=env
             )
-            #subprocess.Popen(["python3", "/home/user/wrk/xfce-start-menu/start-menu-app.py"])
-            #if anchor:
-            #    GLib.timeout_add(500, lambda: (
-            #        Gio.bus_get_sync(Gio.BusType.SESSION, None).call_sync(
-            #            "org.custom.xfce.startmenu",
-            #            "/org/custom/xfce/startmenu",
-            #            "org.freedesktop.Application",
-            #            "ActivateAction",
-            #            GLib.Variant("(sava{sv})", ("open-at", [GLib.Variant("(iiiis)", anchor)], {})),
-            #            None, Gio.DBusCallFlags.NONE, 200, None
-            #        ), False
-            #    )[-1])
 
     def on_left_click(btn):
         if btn.get_active():
@@ -174,6 +193,7 @@ def setup_plugin(plugin):
         pos_name = screen_pos.value_nick  # например: 'bottom', 'top', 'left', 'right', 'floating-h'
         return (btn_x, btn_y, btn_w, btn_h, pos_name)
 
+
     # 5. Сборка виджета и контекстного меню ПКМ панели
     plugin.connect("remote-event", on_remote_event)
     plugin.connect("size-changed", on_size_changed)
@@ -185,6 +205,7 @@ def setup_plugin(plugin):
             _show_winx_popup(event)
             return True  # Не даём панели открыть стандартное меню в точке курсора
         return False
+
 
     button.connect("button-press-event", on_panel_button_press)
     button.connect("clicked", on_left_click)
