@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 21:20+0500\n"
+"POT-Creation-Date: 2026-11-20 23:32+0500\n"
 "PO-Revision-Date: 2026-11-15 18:46+0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,81 +18,167 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/start-menu-sys.py:41
-msgid "Terminal"
-msgstr "Терминал"
+#: src/sys_actions.py:56
+#, python-brace-format
+msgid ""
+"Application '{bin}' is not installed.\n"
+"Install package '{pkg}' now?"
+msgstr ""
 
-#: src/start-menu-sys.py:42
-msgid "Task Manager"
-msgstr "Диспетчер задач"
-
-#: src/start-menu-sys.py:43
-msgid "System Settings"
-msgstr "Настройки системы"
-
-#: src/start-menu-sys.py:44
-msgid "Display Settings"
-msgstr "Параметры экрана"
-
-#: src/start-menu-sys.py:45
-msgid "Network Connections"
-msgstr "Сетевые соединения"
-
-#: src/start-menu-sys.py:46
-msgid "Power Manager"
-msgstr "Управление питанием"
-
-#: src/start-menu-sys.py:54
-msgid "Left-click"
-msgstr "Left-click"
-
-#: src/start-menu-sys.py:54
-msgid "Applications Menu"
-msgstr "Меню приложений"
-
-#: src/start-menu-sys.py:55 src/start-menu-sys.py:56
-msgid "Right-click"
-msgstr "Right-click"
-
-#: src/start-menu-sys.py:55
+#: src/sys_actions.py:64 src/sys_actions.py:121 src/sys_actions.py:134
 msgid "System Menu"
 msgstr "Системное меню"
 
-#: src/start-menu-sys.py:56
-msgid "Panel Preferences"
-msgstr "Настройки панели"
+#: src/sys_actions.py:69
+msgid "Installation complete. You can close this terminal."
+msgstr ""
 
-#: src/start-menu-app.py:131
-msgid "Lock Screen"
-msgstr "Блокировка экрана"
+#: src/sys_actions.py:70
+msgid "Installation failed! You can close this terminal."
+msgstr ""
 
-#: src/start-menu-app.py:132
-msgid "Log Out"
-msgstr "Выйти"
+#: src/sys_actions.py:120
+msgid ""
+"No suitable application.\n"
+"Under developing..."
+msgstr ""
 
-#: src/start-menu-app.py:134
-msgid "Suspend"
-msgstr "Ждущий режим"
+#: src/sys_actions.py:133
+#, python-brace-format
+msgid "Command '{bin}' not found."
+msgstr ""
 
-#: src/start-menu-app.py:135
+#: src/sys_cmd.py:133 src/sys_cmd.py:140 src/sys_cmd.py:321
+#: src/sys_winx_menu.py:159
+msgid "Run"
+msgstr ""
+
+#: src/sys_cmd.py:139
+msgid "Cancel"
+msgstr ""
+
+#: src/sys_cmd.py:151
+msgid "Type the name of a program, folder, or command to run:"
+msgstr ""
+
+#: src/sys_cmd.py:166
+msgid "Command... (Tab to complete)"
+msgstr ""
+
+#: src/sys_cmd.py:319
+#, python-brace-format
+msgid "Failed to run '{cmd}'"
+msgstr ""
+
+#: src/sys_winx_menu.py:41 src/sys_winx_menu.py:143
+msgid "Installed apps"
+msgstr ""
+
+#: src/sys_winx_menu.py:42 src/sys_winx_menu.py:144
+msgid "Power Options"
+msgstr ""
+
+#: src/sys_winx_menu.py:43 src/sys_winx_menu.py:145
+msgid "Event Viewer"
+msgstr ""
+
+#: src/sys_winx_menu.py:44 src/sys_winx_menu.py:146
+#, fuzzy
+msgid "System"
+msgstr "Системное меню"
+
+#: src/sys_winx_menu.py:45 src/sys_winx_menu.py:147
+#, fuzzy
+msgid "Device Manager"
+msgstr "Управление питанием"
+
+#: src/sys_winx_menu.py:46 src/sys_winx_menu.py:148
+msgid "Network Connections"
+msgstr "Сетевые соединения"
+
+#: src/sys_winx_menu.py:47 src/sys_winx_menu.py:149
+#, fuzzy
+msgid "Disk Management"
+msgstr "Диспетчер задач"
+
+#: src/sys_winx_menu.py:48 src/sys_winx_menu.py:150
+#, fuzzy
+msgid "Computer Management"
+msgstr "Управление питанием"
+
+#: src/sys_winx_menu.py:50
+#, fuzzy
+msgid "Term_inal"
+msgstr "Терминал"
+
+#: src/sys_winx_menu.py:51
+#, fuzzy
+msgid "Terminal (_Admin)"
+msgstr "Терминал"
+
+#: src/sys_winx_menu.py:53 src/sys_winx_menu.py:155
+msgid "Task Manager"
+msgstr "Диспетчер задач"
+
+#: src/sys_winx_menu.py:54 src/sys_winx_menu.py:156
+#, fuzzy
+msgid "Settings"
+msgstr "Настройки системы"
+
+#: src/sys_winx_menu.py:55 src/sys_winx_menu.py:157
+msgid "File Explorer"
+msgstr ""
+
+#: src/sys_winx_menu.py:56 src/sys_winx_menu.py:158
+msgid "Search"
+msgstr ""
+
+#: src/sys_winx_menu.py:57
+msgid "_Run"
+msgstr ""
+
+#: src/sys_winx_menu.py:59 src/sys_winx_menu.py:161
+msgid "Shut down or sign out"
+msgstr ""
+
+#: src/sys_winx_menu.py:60 src/sys_winx_menu.py:162
+msgid "Sign out"
+msgstr ""
+
+#: src/sys_winx_menu.py:61 src/sys_winx_menu.py:163
+msgid "Sleep"
+msgstr ""
+
+#: src/sys_winx_menu.py:62 src/sys_winx_menu.py:164
+msgid "Hibernate"
+msgstr ""
+
+#: src/sys_winx_menu.py:63 src/sys_winx_menu.py:165
+#, fuzzy
+msgid "Shut down"
+msgstr "Выключить"
+
+#: src/sys_winx_menu.py:64 src/sys_winx_menu.py:166
 msgid "Restart"
 msgstr "Перезагрузить"
 
-#: src/start-menu-app.py:136
-msgid "Shut Down"
-msgstr "Выключить"
+#: src/sys_winx_menu.py:66 src/sys_winx_menu.py:168
+msgid "Desktop"
+msgstr ""
 
-#: src/start-menu-app.py:526
-msgid "Path not found"
-msgstr "Путь не найден"
+#: src/sys_winx_menu.py:152
+#, fuzzy
+msgid "Terminal"
+msgstr "Терминал"
 
-#: src/start-menu-app.py:527
-msgid "No ID"
-msgstr "Нет ID"
+#: src/sys_winx_menu.py:153
+#, fuzzy
+msgid "Terminal (Admin)"
+msgstr "Терминал"
 
-#: src/start-menu-app.py:528
-msgid "File:"
-msgstr "Файл:"
+#: src/sys_winx_menu.py:198
+msgid "Shortcut"
+msgstr ""
 
 #: src/start-menu.desktop.in:3
 msgid "Start Menu"
@@ -101,3 +187,39 @@ msgstr "Меню «Пуск»"
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
 msgstr "Настраиваемое меню «Пуск» и системное всплывающее меню Win+X"
+
+#~ msgid "Left-click"
+#~ msgstr "Left-click"
+
+#~ msgid "Applications Menu"
+#~ msgstr "Меню приложений"
+
+#~ msgid "Right-click"
+#~ msgstr "Right-click"
+
+#~ msgid "Panel Preferences"
+#~ msgstr "Настройки панели"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Блокировка экрана"
+
+#~ msgid "Log Out"
+#~ msgstr "Выйти"
+
+#~ msgid "Suspend"
+#~ msgstr "Ждущий режим"
+
+#~ msgid "Shut Down"
+#~ msgstr "Выключить"
+
+#~ msgid "Path not found"
+#~ msgstr "Путь не найден"
+
+#~ msgid "No ID"
+#~ msgstr "Нет ID"
+
+#~ msgid "File:"
+#~ msgstr "Файл:"
+
+#~ msgid "Display Settings"
+#~ msgstr "Параметры экрана"
