@@ -5,7 +5,7 @@ The best of the Windows 11 Start button, applied to XFCE.
 On Phyton on Glib.
 
 ## The first MVP
-Currently jsut Minimum Viable Product.
+Currently just Minimum Viable Product.
 
 
 ## How to build
@@ -61,7 +61,7 @@ xfce4-panel --plugin-event=start-menu-14:winx:bool:true    Win+X
 
 ### Misc (under develop)
 
-The list of suitable command for adinistartion and debug
+The list of suitable command for administration and debug
 ```
 xfconf-query -c xfce4-panel -p /plugins -l -v | grep start-menu
 xfce4-panel -q && PANEL_DEBUG=1 xfce4-panel
