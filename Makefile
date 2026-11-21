@@ -1,7 +1,7 @@
 DOMAIN = xfce-start-menu
 LOCALE_DIR = src/locale
 POT_FILE = $(LOCALE_DIR)/$(DOMAIN).pot
-LANGS = da zh_CN ar it de es ru
+LANGS = da zh_CN ar it de es ru vi
 
 VERSION := $(strip $(shell cat VERSION 2>/dev/null || echo "0.0.0"))
 
