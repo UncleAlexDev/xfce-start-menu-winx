@@ -125,3 +125,8 @@ xfconf-query -c xfce4-keyboard-shortcuts -l -v | grep -iE "super|Primary.*Escape
 # Запустить панель в режиме отладки с выводом логов в терминал
 xfce4-panel -q && PANEL_DEBUG=1 xfce4-panel
 ```
+
+## Author & Support
+
+* **Contract work & custom features:** Contact via `avl.mail.post@gmail.com` (available via [Mellow.io](https://mellow.io))
+

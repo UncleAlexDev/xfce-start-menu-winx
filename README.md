@@ -125,3 +125,10 @@ xfconf-query -c xfce4-keyboard-shortcuts -l -v | grep -iE "super|Primary.*Escape
 # Run xfce4-panel in foreground with debug output
 xfce4-panel -q && PANEL_DEBUG=1 xfce4-panel
 ```
+
+## Author & Support
+
+* **Contract work & custom features:** Contact via `avl.mail.post@gmail.com` (available via [Mellow.io](https://mellow.io))
+
+
+
