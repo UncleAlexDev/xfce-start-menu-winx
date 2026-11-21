@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-20 23:32+0500\n"
+"POT-Creation-Date: 2026-11-21 11:32+0500\n"
 "PO-Revision-Date: 2026-11-15 18:46+0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,166 +18,174 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/sys_actions.py:56
+#: src/sys_actions.py:69
 #, python-brace-format
 msgid ""
 "Application '{bin}' is not installed.\n"
 "Install package '{pkg}' now?"
 msgstr ""
 
-#: src/sys_actions.py:64 src/sys_actions.py:121 src/sys_actions.py:134
+#: src/sys_actions.py:77 src/sys_actions.py:134 src/sys_actions.py:147
+#: src/sys_shortcuts.py:153
 msgid "System Menu"
 msgstr "Системное меню"
 
-#: src/sys_actions.py:69
+#: src/sys_actions.py:82
 msgid "Installation complete. You can close this terminal."
 msgstr ""
 
-#: src/sys_actions.py:70
+#: src/sys_actions.py:83
 msgid "Installation failed! You can close this terminal."
 msgstr ""
 
-#: src/sys_actions.py:120
+#: src/sys_actions.py:133
 msgid ""
 "No suitable application.\n"
 "Under developing..."
 msgstr ""
 
-#: src/sys_actions.py:133
+#: src/sys_actions.py:146
 #, python-brace-format
 msgid "Command '{bin}' not found."
 msgstr ""
 
-#: src/sys_cmd.py:133 src/sys_cmd.py:140 src/sys_cmd.py:321
-#: src/sys_winx_menu.py:159
+#: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
+#: src/sys_winx_menu.py:204
 msgid "Run"
 msgstr ""
 
-#: src/sys_cmd.py:139
+#: src/sys_cmd.py:146
 msgid "Cancel"
 msgstr ""
 
-#: src/sys_cmd.py:151
+#: src/sys_cmd.py:158
 msgid "Type the name of a program, folder, or command to run:"
 msgstr ""
 
-#: src/sys_cmd.py:166
+#: src/sys_cmd.py:173
 msgid "Command... (Tab to complete)"
 msgstr ""
 
-#: src/sys_cmd.py:319
+#: src/sys_cmd.py:332
 #, python-brace-format
 msgid "Failed to run '{cmd}'"
 msgstr ""
 
-#: src/sys_winx_menu.py:41 src/sys_winx_menu.py:143
+#: src/sys_shortcuts.py:151
+msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
+msgstr ""
+
+#: src/sys_shortcuts.py:156
+msgid ""
+"Fix incompatible shortcuts now?\n"
+"If left as is, system menu hotkeys may work unstably.\n"
+"You can also review them manually in: Settings → Keyboard → Application "
+"Shortcuts.\n"
+"\n"
+msgstr ""
+
+#: src/sys_shortcuts.py:163
+msgid "Leave as is"
+msgstr ""
+
+#: src/sys_shortcuts.py:164
+msgid "Open Keyboard..."
+msgstr ""
+
+#: src/sys_shortcuts.py:165
+msgid "Fix now"
+msgstr ""
+
+#: src/sys_winx_menu.py:188
 msgid "Installed apps"
 msgstr ""
 
-#: src/sys_winx_menu.py:42 src/sys_winx_menu.py:144
+#: src/sys_winx_menu.py:189
 msgid "Power Options"
 msgstr ""
 
-#: src/sys_winx_menu.py:43 src/sys_winx_menu.py:145
+#: src/sys_winx_menu.py:190
 msgid "Event Viewer"
 msgstr ""
 
-#: src/sys_winx_menu.py:44 src/sys_winx_menu.py:146
+#: src/sys_winx_menu.py:191
 #, fuzzy
 msgid "System"
 msgstr "Системное меню"
 
-#: src/sys_winx_menu.py:45 src/sys_winx_menu.py:147
+#: src/sys_winx_menu.py:192
 #, fuzzy
 msgid "Device Manager"
 msgstr "Управление питанием"
 
-#: src/sys_winx_menu.py:46 src/sys_winx_menu.py:148
+#: src/sys_winx_menu.py:193
 msgid "Network Connections"
 msgstr "Сетевые соединения"
 
-#: src/sys_winx_menu.py:47 src/sys_winx_menu.py:149
+#: src/sys_winx_menu.py:194
 #, fuzzy
 msgid "Disk Management"
 msgstr "Диспетчер задач"
 
-#: src/sys_winx_menu.py:48 src/sys_winx_menu.py:150
+#: src/sys_winx_menu.py:195
 #, fuzzy
 msgid "Computer Management"
 msgstr "Управление питанием"
 
-#: src/sys_winx_menu.py:50
-#, fuzzy
-msgid "Term_inal"
-msgstr "Терминал"
-
-#: src/sys_winx_menu.py:51
-#, fuzzy
-msgid "Terminal (_Admin)"
-msgstr "Терминал"
-
-#: src/sys_winx_menu.py:53 src/sys_winx_menu.py:155
-msgid "Task Manager"
-msgstr "Диспетчер задач"
-
-#: src/sys_winx_menu.py:54 src/sys_winx_menu.py:156
-#, fuzzy
-msgid "Settings"
-msgstr "Настройки системы"
-
-#: src/sys_winx_menu.py:55 src/sys_winx_menu.py:157
-msgid "File Explorer"
-msgstr ""
-
-#: src/sys_winx_menu.py:56 src/sys_winx_menu.py:158
-msgid "Search"
-msgstr ""
-
-#: src/sys_winx_menu.py:57
-msgid "_Run"
-msgstr ""
-
-#: src/sys_winx_menu.py:59 src/sys_winx_menu.py:161
-msgid "Shut down or sign out"
-msgstr ""
-
-#: src/sys_winx_menu.py:60 src/sys_winx_menu.py:162
-msgid "Sign out"
-msgstr ""
-
-#: src/sys_winx_menu.py:61 src/sys_winx_menu.py:163
-msgid "Sleep"
-msgstr ""
-
-#: src/sys_winx_menu.py:62 src/sys_winx_menu.py:164
-msgid "Hibernate"
-msgstr ""
-
-#: src/sys_winx_menu.py:63 src/sys_winx_menu.py:165
-#, fuzzy
-msgid "Shut down"
-msgstr "Выключить"
-
-#: src/sys_winx_menu.py:64 src/sys_winx_menu.py:166
-msgid "Restart"
-msgstr "Перезагрузить"
-
-#: src/sys_winx_menu.py:66 src/sys_winx_menu.py:168
-msgid "Desktop"
-msgstr ""
-
-#: src/sys_winx_menu.py:152
+#: src/sys_winx_menu.py:197
 #, fuzzy
 msgid "Terminal"
 msgstr "Терминал"
 
-#: src/sys_winx_menu.py:153
+#: src/sys_winx_menu.py:198
 #, fuzzy
 msgid "Terminal (Admin)"
 msgstr "Терминал"
 
-#: src/sys_winx_menu.py:198
-msgid "Shortcut"
+#: src/sys_winx_menu.py:200
+msgid "Task Manager"
+msgstr "Диспетчер задач"
+
+#: src/sys_winx_menu.py:201
+#, fuzzy
+msgid "Settings"
+msgstr "Настройки системы"
+
+#: src/sys_winx_menu.py:202
+msgid "File Explorer"
+msgstr ""
+
+#: src/sys_winx_menu.py:203
+msgid "Search"
+msgstr ""
+
+#: src/sys_winx_menu.py:206
+msgid "Shut down or sign out"
+msgstr ""
+
+#: src/sys_winx_menu.py:207
+msgid "Sign out"
+msgstr ""
+
+#: src/sys_winx_menu.py:208
+msgid "Sleep"
+msgstr ""
+
+#: src/sys_winx_menu.py:209
+msgid "Hibernate"
+msgstr ""
+
+#: src/sys_winx_menu.py:210
+#, fuzzy
+msgid "Shut down"
+msgstr "Выключить"
+
+#: src/sys_winx_menu.py:211
+msgid "Restart"
+msgstr "Перезагрузить"
+
+#: src/sys_winx_menu.py:213
+msgid "Desktop"
 msgstr ""
 
 #: src/start-menu.desktop.in:3
@@ -187,6 +195,14 @@ msgstr "Меню «Пуск»"
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
 msgstr "Настраиваемое меню «Пуск» и системное всплывающее меню Win+X"
+
+#, fuzzy
+#~ msgid "Term_inal"
+#~ msgstr "Терминал"
+
+#, fuzzy
+#~ msgid "Terminal (_Admin)"
+#~ msgstr "Терминал"
 
 #~ msgid "Left-click"
 #~ msgstr "Left-click"

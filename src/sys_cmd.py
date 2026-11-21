@@ -16,6 +16,11 @@ MAX_HISTORY = 10
 MAX_COMPLETIONS = 10
 MORE_MARKER = "..."
 
+try:
+    gi.require_version("GdkX11", "3.0")
+    from gi.repository import GdkX11
+except (ValueError, ImportError):
+    GdkX11 = None
 
 def _get_history_path():
     cache_base = os.environ.get("XDG_CACHE_HOME", os.path.expanduser("~/.cache"))
@@ -135,6 +140,8 @@ class RunDialog(Gtk.Dialog):
         self.set_default_size(420, -1)
         self.set_resizable(False)
         self.set_icon_name("system-run")
+        self.set_keep_above(True)
+        self.set_focus_on_map(True)
 
         self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         run_btn = self.add_button(_("Run"), Gtk.ResponseType.OK)
@@ -236,6 +243,12 @@ class RunDialog(Gtk.Dialog):
         y = max(geom.y + margin, min(y, geom.y + geom.height - win_h - margin))
         self.move(x, y)
 
+        if gdk_win and GdkX11 is not None and isinstance(gdk_win, GdkX11.X11Window):
+            ts = GdkX11.x11_get_server_time(gdk_win)
+            self.present_with_time(ts)
+        else:
+            self.present()
+        self.entry.grab_focus()
 
     def _get_matches(self, prefix):
         """Возвращает (список_до_10_команд, есть_ли_ещё)."""

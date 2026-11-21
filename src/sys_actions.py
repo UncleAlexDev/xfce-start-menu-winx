@@ -1,3 +1,4 @@
+import os
 import shlex
 import shutil
 import subprocess
@@ -26,12 +27,24 @@ def toggle_show_desktop():
         screen.force_update()
         screen.toggle_showing_desktop(not screen.get_showing_desktop())
 
+def _build_startup_env():
+    """Формирует env с актуальным timestamp в DESKTOP_STARTUP_ID без блокировки X11."""
+    env = os.environ.copy()
+    ts = Gtk.get_current_event_time()
+    if ts:
+        env["DESKTOP_STARTUP_ID"] = f"xfce-start-menu_{os.getpid()}_TIME{ts}"
+    return env
+
 
 def run_command(cmd):
     if not cmd:
         return
     try:
-        subprocess.Popen(shlex.split(cmd), start_new_session=True)
+        subprocess.Popen(
+            shlex.split(cmd),
+            env=_build_startup_env(),
+            start_new_session=True,
+        )
     except Exception as e:
         print(f"[xfce-start-menu] Failed to run '{cmd}': {e}")
 

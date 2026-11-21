@@ -3,12 +3,6 @@ import os
 import subprocess
 import sys
 
-from sys_actions import execute_winx_key
-from sys_i18n import APP_VERSION, _
-from sys_shortcuts import sync_plugin_shortcuts
-from sys_winx_menu import show_winx_popup
-
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
@@ -20,12 +14,15 @@ gi.require_version("Gtk", "3.0")
 gi.require_version("Libxfce4panel", "2.0")
 from gi.repository import Gdk, Gio, GLib, Gtk, Libxfce4panel
 
-#from sys_i18n import APP_VERSION, _
-#from sys_winx_menu import show_winx_popup
+from sys_actions import execute_winx_key
+from sys_i18n import APP_VERSION, _
+from sys_shortcuts import ensure_plugin_shortcuts
+from sys_winx_menu import show_winx_popup
 
 
 def setup_plugin(plugin):
-    sync_plugin_shortcuts()
+    # Проверяем целостность хоткеев после отрисовки панели
+    GLib.idle_add(lambda: ensure_plugin_shortcuts(interactive=True) and False)
     button = Libxfce4panel.panel_create_toggle_button()
 
     tooltip_text = (
@@ -39,7 +36,12 @@ def setup_plugin(plugin):
     button.set_tooltip_markup(tooltip_text)
 
     icon_theme = Gtk.IconTheme.get_default()
-    for name in ["xfce4-panel-menu", "start-here", "applications-system", "emblem-system"]:
+    for name in [
+        "xfce4-panel-menu",
+        "start-here",
+        "applications-system",
+        "emblem-system",
+    ]:
         if icon_theme.has_icon(name):
             icon = Gtk.Image.new_from_icon_name(name, Gtk.IconSize.LARGE_TOOLBAR)
             break
