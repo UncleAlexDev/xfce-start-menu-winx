@@ -1,0 +1,241 @@
+# Arabic translations for xfce-start-menu package.
+# Copyright (C) 2026 xfce-start-menu
+# This file is distributed under the same license as the xfce-start-menu package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce-start-menu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-21 12:22+0500\n"
+"PO-Revision-Date: 2026-11-21 12:25+0500\n"
+"Last-Translator: xfce-start-menu team\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: src/start-menu-sys.py:31
+msgid "Left-click"
+msgstr "نقر بالزر الأيسر"
+
+#: src/start-menu-sys.py:31
+msgid "Applications Menu"
+msgstr "قائمة التطبيقات"
+
+#: src/start-menu-sys.py:32 src/start-menu-sys.py:33
+msgid "Right-click"
+msgstr "نقر بالزر الأيمن"
+
+#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
+#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+msgid "System Menu"
+msgstr "قائمة النظام"
+
+#: src/start-menu-sys.py:33
+msgid "Panel Preferences"
+msgstr "تفضيلات اللوحة"
+
+#: src/start-menu-app.py:131
+msgid "Lock Screen"
+msgstr ""
+
+#: src/start-menu-app.py:132
+msgid "Log Out"
+msgstr ""
+
+#: src/start-menu-app.py:134
+msgid "Suspend"
+msgstr ""
+
+#: src/start-menu-app.py:135 src/sys_winx_menu.py:211
+msgid "Restart"
+msgstr "إعادة التشغيل"
+
+#: src/start-menu-app.py:136
+msgid "ShutDown"
+msgstr "إيقاف التشغيل"
+
+#: src/start-menu-app.py:526
+msgid "Path not found"
+msgstr ""
+
+#: src/start-menu-app.py:527
+msgid "No ID"
+msgstr ""
+
+#: src/start-menu-app.py:528
+msgid "File:"
+msgstr ""
+
+#: src/sys_actions.py:69
+#, python-brace-format
+msgid ""
+"Application '{bin}' is not installed.\n"
+"Install package '{pkg}' now?"
+msgstr ""
+"التطبيق '{bin}' غير مثبت.\n"
+"هل تريد تثبيت الحزمة '{pkg}' الآن؟"
+
+#: src/sys_actions.py:82
+msgid "Installation complete. You can close this terminal."
+msgstr "اكتمل التثبيت. يمكنك إغلاق هذه الطرفية."
+
+#: src/sys_actions.py:83
+msgid "Installation failed! You can close this terminal."
+msgstr "فشل التثبيت! يمكنك إغلاق هذه الطرفية."
+
+#: src/sys_actions.py:133
+msgid ""
+"No suitable application.\n"
+"Under developing..."
+msgstr ""
+"لم يتم العثور على تطبيق مناسب.\n"
+"قيد التطوير..."
+
+#: src/sys_actions.py:146
+#, python-brace-format
+msgid "Command '{bin}' not found."
+msgstr "الأمر '{bin}' غير موجود."
+
+#: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
+#: src/sys_winx_menu.py:204
+msgid "Run"
+msgstr "تشغيل"
+
+#: src/sys_cmd.py:146
+msgid "Cancel"
+msgstr "إلغاء الأمر"
+
+#: src/sys_cmd.py:158
+msgid "Type the name of a program, folder, or command to run:"
+msgstr "اكتب اسم برنامج أو مجلد أو أمر لتشغيله:"
+
+#: src/sys_cmd.py:173
+msgid "Command... (Tab to complete)"
+msgstr "أمر... (اضغط Tab للإكمال التلقائي)"
+
+#: src/sys_cmd.py:332
+#, python-brace-format
+msgid "Failed to run '{cmd}'"
+msgstr "تعذر تشغيل '{cmd}'"
+
+#: src/sys_shortcuts.py:151
+msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
+msgstr "تم اكتشاف عدم تطابق في اختصارات لوحة المفاتيح لقائمة ابدأ Xfce."
+
+#: src/sys_shortcuts.py:156
+msgid ""
+"Fix incompatible shortcuts now?\n"
+"If left as is, system menu hotkeys may work unstably.\n"
+"You can also review them manually in: Settings → Keyboard → Application "
+"Shortcuts.\n"
+"\n"
+msgstr ""
+"هل تريد إصلاح الاختصارات غير المتوافقة الآن؟\n"
+"إذا تُركت كما هي، فقد تعمل مفاتيح اختصار قائمة النظام بشكل غير مستقر.\n"
+"يمكنك أيضاً مراجعتها يدوياً في: الإعدادات ← لوحة المفاتيح ← اختصارات "
+"التطبيقات.\n"
+"\n"
+
+#: src/sys_shortcuts.py:163
+msgid "Leave as is"
+msgstr "تركها كما هي"
+
+#: src/sys_shortcuts.py:164
+msgid "Open Keyboard..."
+msgstr "فتح لوحة المفاتيح..."
+
+#: src/sys_shortcuts.py:165
+msgid "Fix now"
+msgstr "إصلاح الآن"
+
+#: src/sys_winx_menu.py:188
+msgid "Installed apps"
+msgstr "التطبيقات المثبتة"
+
+#: src/sys_winx_menu.py:189
+msgid "Power Options"
+msgstr "خيارات الطاقة"
+
+#: src/sys_winx_menu.py:190
+msgid "Event Viewer"
+msgstr "عارض الأحداث"
+
+#: src/sys_winx_menu.py:191
+msgid "System"
+msgstr "النظام"
+
+#: src/sys_winx_menu.py:192
+msgid "Device Manager"
+msgstr "إدارة الأجهزة"
+
+#: src/sys_winx_menu.py:193
+msgid "Network Connections"
+msgstr "اتصالات الشبكة"
+
+#: src/sys_winx_menu.py:194
+msgid "Disk Management"
+msgstr "إدارة الأقراص"
+
+#: src/sys_winx_menu.py:195
+msgid "Computer Management"
+msgstr "إدارة الكمبيوتر"
+
+#: src/sys_winx_menu.py:197
+msgid "Terminal"
+msgstr "الطرفية"
+
+#: src/sys_winx_menu.py:198
+msgid "Terminal (Admin)"
+msgstr "الطرفية (المسؤول)"
+
+#: src/sys_winx_menu.py:200
+msgid "Task Manager"
+msgstr "إدارة المهام"
+
+#: src/sys_winx_menu.py:201
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: src/sys_winx_menu.py:202
+msgid "File Explorer"
+msgstr "مستكشف الملفات"
+
+#: src/sys_winx_menu.py:203
+msgid "Search"
+msgstr "بحث"
+
+#: src/sys_winx_menu.py:206
+msgid "Shutdown or sign out"
+msgstr "إيقاف التشغيل أو تسجيل الخروج"
+
+#: src/sys_winx_menu.py:207
+msgid "Sign out"
+msgstr "تسجيل الخروج"
+
+#: src/sys_winx_menu.py:208
+msgid "Sleep"
+msgstr "سكون"
+
+#: src/sys_winx_menu.py:209
+msgid "Hibernate"
+msgstr "إسبات"
+
+#: src/sys_winx_menu.py:210
+msgid "Shutdown"
+msgstr "إيقاف التشغيل"
+
+#: src/sys_winx_menu.py:213
+msgid "Desktop"
+msgstr "سطح المكتب"
+
+#: src/start-menu.desktop.in:3
+msgid "Start Menu"
+msgstr "قائمة ابدأ"
+
+#: src/start-menu.desktop.in:4
+msgid "Custom Start Menu and Win+X system popup"
+msgstr "قائمة ابدأ مخصصة وقائمة النظام المنبثقة Win+X"

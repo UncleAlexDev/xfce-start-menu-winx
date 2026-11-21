@@ -1,0 +1,242 @@
+# Danish translations for xfce-start-menu package.
+# Copyright (C) 2026 xfce-start-menu
+# This file is distributed under the same license as the xfce-start-menu package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce-start-menu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-21 12:22+0500\n"
+"PO-Revision-Date: 2026-11-21 12:15+0500\n"
+"Last-Translator: xfce-start-menu team\n"
+"Language-Team: Danish\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/start-menu-sys.py:31
+msgid "Left-click"
+msgstr "Venstreklik"
+
+#: src/start-menu-sys.py:31
+msgid "Applications Menu"
+msgstr "Programmenu"
+
+#: src/start-menu-sys.py:32 src/start-menu-sys.py:33
+msgid "Right-click"
+msgstr "Højreklik"
+
+#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
+#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+msgid "System Menu"
+msgstr "Systemmenu"
+
+#: src/start-menu-sys.py:33
+msgid "Panel Preferences"
+msgstr "Panelindstillinger"
+
+#: src/start-menu-app.py:131
+msgid "Lock Screen"
+msgstr ""
+
+#: src/start-menu-app.py:132
+msgid "Log Out"
+msgstr ""
+
+#: src/start-menu-app.py:134
+msgid "Suspend"
+msgstr ""
+
+#: src/start-menu-app.py:135 src/sys_winx_menu.py:211
+msgid "Restart"
+msgstr "Genstart"
+
+#: src/start-menu-app.py:136
+msgid "ShutDown"
+msgstr "Luk computeren"
+
+#: src/start-menu-app.py:526
+msgid "Path not found"
+msgstr ""
+
+#: src/start-menu-app.py:527
+msgid "No ID"
+msgstr ""
+
+#: src/start-menu-app.py:528
+msgid "File:"
+msgstr ""
+
+#: src/sys_actions.py:69
+#, python-brace-format
+msgid ""
+"Application '{bin}' is not installed.\n"
+"Install package '{pkg}' now?"
+msgstr ""
+"Programmet '{bin}' er ikke installeret.\n"
+"Vil du installere pakken '{pkg}' nu?"
+
+#: src/sys_actions.py:82
+msgid "Installation complete. You can close this terminal."
+msgstr "Installationen er fuldført. Du kan lukke denne terminal."
+
+#: src/sys_actions.py:83
+msgid "Installation failed! You can close this terminal."
+msgstr "Installationen mislykkedes! Du kan lukke denne terminal."
+
+#: src/sys_actions.py:133
+msgid ""
+"No suitable application.\n"
+"Under developing..."
+msgstr ""
+"Intet egnet program fundet.\n"
+"Under udvikling..."
+
+#: src/sys_actions.py:146
+#, python-brace-format
+msgid "Command '{bin}' not found."
+msgstr "Kommandoen '{bin}' blev ikke fundet."
+
+#: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
+#: src/sys_winx_menu.py:204
+msgid "Run"
+msgstr "Kør"
+
+#: src/sys_cmd.py:146
+msgid "Cancel"
+msgstr "Annuller"
+
+#: src/sys_cmd.py:158
+msgid "Type the name of a program, folder, or command to run:"
+msgstr ""
+"Skriv navnet på et program, en mappe eller en kommando, der skal køres:"
+
+#: src/sys_cmd.py:173
+msgid "Command... (Tab to complete)"
+msgstr "Kommando... (Tab for autofuldførelse)"
+
+#: src/sys_cmd.py:332
+#, python-brace-format
+msgid "Failed to run '{cmd}'"
+msgstr "Kunne ikke køre '{cmd}'"
+
+#: src/sys_shortcuts.py:151
+msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
+msgstr ""
+"Der blev fundet uoverensstemmelse i tastaturgenveje til Xfce Start Menu."
+
+#: src/sys_shortcuts.py:156
+msgid ""
+"Fix incompatible shortcuts now?\n"
+"If left as is, system menu hotkeys may work unstably.\n"
+"You can also review them manually in: Settings → Keyboard → Application "
+"Shortcuts.\n"
+"\n"
+msgstr ""
+"Vil du rette inkompatible genveje nu?\n"
+"Hvis de forbliver uændrede, kan systemmenuens genvejstaster virke ustabilt.\n"
+"Du kan også gennemgå dem manuelt i: Indstillinger → Tastatur → "
+"Programgenveje.\n"
+"\n"
+
+#: src/sys_shortcuts.py:163
+msgid "Leave as is"
+msgstr "Lad være"
+
+#: src/sys_shortcuts.py:164
+msgid "Open Keyboard..."
+msgstr "Åbn Tastatur..."
+
+#: src/sys_shortcuts.py:165
+msgid "Fix now"
+msgstr "Ret nu"
+
+#: src/sys_winx_menu.py:188
+msgid "Installed apps"
+msgstr "Installerede apps"
+
+#: src/sys_winx_menu.py:189
+msgid "Power Options"
+msgstr "Strømstyring"
+
+#: src/sys_winx_menu.py:190
+msgid "Event Viewer"
+msgstr "Logbog"
+
+#: src/sys_winx_menu.py:191
+msgid "System"
+msgstr "System"
+
+#: src/sys_winx_menu.py:192
+msgid "Device Manager"
+msgstr "Enhedshåndtering"
+
+#: src/sys_winx_menu.py:193
+msgid "Network Connections"
+msgstr "Netværksforbindelser"
+
+#: src/sys_winx_menu.py:194
+msgid "Disk Management"
+msgstr "Diskhåndtering"
+
+#: src/sys_winx_menu.py:195
+msgid "Computer Management"
+msgstr "Computeradministration"
+
+#: src/sys_winx_menu.py:197
+msgid "Terminal"
+msgstr "Terminal"
+
+#: src/sys_winx_menu.py:198
+msgid "Terminal (Admin)"
+msgstr "Terminal (Administrator)"
+
+#: src/sys_winx_menu.py:200
+msgid "Task Manager"
+msgstr "Jobliste"
+
+#: src/sys_winx_menu.py:201
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: src/sys_winx_menu.py:202
+msgid "File Explorer"
+msgstr "Stifinder"
+
+#: src/sys_winx_menu.py:203
+msgid "Search"
+msgstr "Søg"
+
+#: src/sys_winx_menu.py:206
+msgid "Shutdown or sign out"
+msgstr "Luk computeren, eller log af"
+
+#: src/sys_winx_menu.py:207
+msgid "Sign out"
+msgstr "Log af"
+
+#: src/sys_winx_menu.py:208
+msgid "Sleep"
+msgstr "Slumre"
+
+#: src/sys_winx_menu.py:209
+msgid "Hibernate"
+msgstr "Dvale"
+
+#: src/sys_winx_menu.py:210
+msgid "Shutdown"
+msgstr "Luk computeren"
+
+#: src/sys_winx_menu.py:213
+msgid "Desktop"
+msgstr "Skrivebord"
+
+#: src/start-menu.desktop.in:3
+msgid "Start Menu"
+msgstr "Startmenu"
+
+#: src/start-menu.desktop.in:4
+msgid "Custom Start Menu and Win+X system popup"
+msgstr "Tilpasset startmenu og Win+X-systemmenu"

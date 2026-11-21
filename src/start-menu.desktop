@@ -1,7 +1,19 @@
 [Xfce Panel]
 Type=X-XFCE-PanelPlugin
+Name[da]=Startmenu  Ver. 0.1.0
+Name[zh_CN]=开始菜单  Ver. 0.1.0
+Name[ar]=قائمة ابدأ  Ver. 0.1.0
+Name[it]=Menu Start  Ver. 0.1.0
+Name[de]=Startmenü  Ver. 0.1.0
+Name[es]=Menú Inicio  Ver. 0.1.0
 Name[ru]=Меню «Пуск»  Ver. 0.1.0
 Name=Start Menu  Ver. 0.1.0
+Comment[da]=Tilpasset startmenu og Win+X-systemmenu
+Comment[zh_CN]=自定义开始菜单与 Win+X 系统弹出菜单
+Comment[ar]=قائمة ابدأ مخصصة وقائمة النظام المنبثقة Win+X
+Comment[it]=Menu Start personalizzato e menu di sistema Win+X
+Comment[de]=Benutzerdefiniertes Startmenü und Win+X-Systemmenü
+Comment[es]=Menú Inicio personalizado y menú emergente del sistema Win+X
 Comment[ru]=Настраиваемое меню «Пуск» и системное меню Win+X
 Comment=Custom Start Menu and Win+X system popup
 Icon=xfce4-panel-menu
