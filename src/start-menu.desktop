@@ -2,7 +2,7 @@
 Type=X-XFCE-PanelPlugin
 Name[ru]=Меню «Пуск»  Ver. 0.1.0
 Name=Start Menu  Ver. 0.1.0
-Comment[ru]=Настраиваемое меню «Пуск» и системное всплывающее меню Win+X
+Comment[ru]=Настраиваемое меню «Пуск» и системное меню Win+X
 Comment=Custom Start Menu and Win+X system popup
 Icon=xfce4-panel-menu
 X-XFCE-Module=startmenu

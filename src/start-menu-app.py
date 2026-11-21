@@ -133,7 +133,7 @@ class XfceStartMenu(Gtk.Window):
             None, 
             ("system-suspend",     _("Suspend"),     ["xfce4-session-logout", "--suspend"]),
             ("system-reboot",      _("Restart"),     ["xfce4-session-logout", "--reboot"]),
-            ("system-shutdown",    _("Shut Down"),   ["xfce4-session-logout", "--halt"]),
+            ("system-shutdown",    _("ShutDown"),    ["xfce4-session-logout", "--halt"]),
         ]
 
         for item in session_actions:

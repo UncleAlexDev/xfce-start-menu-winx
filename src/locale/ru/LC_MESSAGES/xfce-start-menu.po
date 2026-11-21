@@ -1,16 +1,15 @@
-# Russian translations for PACKAGE package.
-# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2026.
+# Russian translations for xfce-start-menu package.
+# Copyright (C) 2026 xfce-start-menu
+# This file is distributed under the same license as the xfce-start-menu package.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 11:32+0500\n"
-"PO-Revision-Date: 2026-11-15 18:46+0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2026-11-21 11:59+0500\n"
+"PO-Revision-Date: 2026-11-21 11:50+0500\n"
+"Last-Translator: xfce-start-menu team\n"
+"Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,62 +17,114 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#: src/start-menu-sys.py:31
+msgid "Left-click"
+msgstr "Left-click"
+
+#: src/start-menu-sys.py:31
+msgid "Applications Menu"
+msgstr "Меню приложений"
+
+#: src/start-menu-sys.py:32 src/start-menu-sys.py:33
+msgid "Right-click"
+msgstr "Right-click"
+
+#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
+#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+msgid "System Menu"
+msgstr "Системное меню"
+
+#: src/start-menu-sys.py:33
+msgid "Panel Preferences"
+msgstr "Свойства панели"
+
+#: src/start-menu-app.py:131
+msgid "Lock Screen"
+msgstr "Блокровка экрана"
+
+#: src/start-menu-app.py:132
+msgid "Log Out"
+msgstr "Завершиь сессию"
+
+#: src/start-menu-app.py:134
+msgid "Suspend"
+msgstr "Спящий режим"
+
+#: src/start-menu-app.py:135 src/sys_winx_menu.py:211
+msgid "Restart"
+msgstr "Перезагрузка"
+
+#: src/start-menu-app.py:136
+msgid "ShutDown"
+msgstr "Завершение работы"
+
+#: src/start-menu-app.py:526
+msgid "Path not found"
+msgstr "Путь не найден"
+
+#: src/start-menu-app.py:527
+msgid "No ID"
+msgstr "No ID"
+
+#: src/start-menu-app.py:528
+msgid "File:"
+msgstr "Файл:"
+
 #: src/sys_actions.py:69
 #, python-brace-format
 msgid ""
 "Application '{bin}' is not installed.\n"
 "Install package '{pkg}' now?"
 msgstr ""
-
-#: src/sys_actions.py:77 src/sys_actions.py:134 src/sys_actions.py:147
-#: src/sys_shortcuts.py:153
-msgid "System Menu"
-msgstr "Системное меню"
+"Приложение «{bin}» не установлено.\n"
+"Установить пакет «{pkg}» сейчас?"
 
 #: src/sys_actions.py:82
 msgid "Installation complete. You can close this terminal."
-msgstr ""
+msgstr "Установка завершена. Вы можете закрыть этот терминал."
 
 #: src/sys_actions.py:83
 msgid "Installation failed! You can close this terminal."
-msgstr ""
+msgstr "Ошибка установки! Вы можете закрыть этот терминал."
 
 #: src/sys_actions.py:133
 msgid ""
 "No suitable application.\n"
 "Under developing..."
 msgstr ""
+"Подходящее приложение не найдено.\n"
+"В разработке..."
 
 #: src/sys_actions.py:146
 #, python-brace-format
 msgid "Command '{bin}' not found."
-msgstr ""
+msgstr "Команда «{bin}» не найдена."
 
 #: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
 #: src/sys_winx_menu.py:204
 msgid "Run"
-msgstr ""
+msgstr "Выполнить"
 
 #: src/sys_cmd.py:146
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: src/sys_cmd.py:158
 msgid "Type the name of a program, folder, or command to run:"
-msgstr ""
+msgstr "Введите имя программы, папки или команду для запуска:"
 
 #: src/sys_cmd.py:173
 msgid "Command... (Tab to complete)"
-msgstr ""
+msgstr "Команда... (Tab — автодополнение)"
 
 #: src/sys_cmd.py:332
 #, python-brace-format
 msgid "Failed to run '{cmd}'"
-msgstr ""
+msgstr "Не удалось выполнить «{cmd}»"
 
 #: src/sys_shortcuts.py:151
 msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
-msgstr ""
+msgstr "Обнаружено несоответствие горячих клавиш для Xfce Start Menu."
 
 #: src/sys_shortcuts.py:156
 msgid ""
@@ -83,110 +134,104 @@ msgid ""
 "Shortcuts.\n"
 "\n"
 msgstr ""
+"Исправить несовместимые комбинации клавиш сейчас?\n"
+"Если оставить как есть, горячие клавиши системного меню могут работать "
+"нестабильно.\n"
+"Вы также можете проверить их вручную: Настройки → Клавиатура → Комбинации "
+"клавиш.\n"
+"\n"
 
 #: src/sys_shortcuts.py:163
 msgid "Leave as is"
-msgstr ""
+msgstr "Оставить как есть"
 
 #: src/sys_shortcuts.py:164
 msgid "Open Keyboard..."
-msgstr ""
+msgstr "Открыть «Клавиатуру»..."
 
 #: src/sys_shortcuts.py:165
 msgid "Fix now"
-msgstr ""
+msgstr "Исправить сейчас"
 
 #: src/sys_winx_menu.py:188
 msgid "Installed apps"
-msgstr ""
+msgstr "Установленные приложения"
 
 #: src/sys_winx_menu.py:189
 msgid "Power Options"
-msgstr ""
+msgstr "Управление электропитанием"
 
 #: src/sys_winx_menu.py:190
 msgid "Event Viewer"
-msgstr ""
+msgstr "Просмотр событий"
 
 #: src/sys_winx_menu.py:191
-#, fuzzy
 msgid "System"
-msgstr "Системное меню"
+msgstr "Система"
 
 #: src/sys_winx_menu.py:192
-#, fuzzy
 msgid "Device Manager"
-msgstr "Управление питанием"
+msgstr "Диспетчер устройств"
 
 #: src/sys_winx_menu.py:193
 msgid "Network Connections"
-msgstr "Сетевые соединения"
+msgstr "Сетевые подключения"
 
 #: src/sys_winx_menu.py:194
-#, fuzzy
 msgid "Disk Management"
-msgstr "Диспетчер задач"
+msgstr "Управление дисками"
 
 #: src/sys_winx_menu.py:195
-#, fuzzy
 msgid "Computer Management"
-msgstr "Управление питанием"
+msgstr "Управление компьютером"
 
 #: src/sys_winx_menu.py:197
-#, fuzzy
 msgid "Terminal"
 msgstr "Терминал"
 
 #: src/sys_winx_menu.py:198
-#, fuzzy
 msgid "Terminal (Admin)"
-msgstr "Терминал"
+msgstr "Терминал (Администратор)"
 
 #: src/sys_winx_menu.py:200
 msgid "Task Manager"
 msgstr "Диспетчер задач"
 
 #: src/sys_winx_menu.py:201
-#, fuzzy
 msgid "Settings"
-msgstr "Настройки системы"
+msgstr "Параметры"
 
 #: src/sys_winx_menu.py:202
 msgid "File Explorer"
-msgstr ""
+msgstr "Проводник"
 
 #: src/sys_winx_menu.py:203
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 #: src/sys_winx_menu.py:206
-msgid "Shut down or sign out"
-msgstr ""
+msgid "Shutdown or sign out"
+msgstr "Завершение работы или выход"
 
 #: src/sys_winx_menu.py:207
 msgid "Sign out"
-msgstr ""
+msgstr "Выйти из системы"
 
 #: src/sys_winx_menu.py:208
 msgid "Sleep"
-msgstr ""
+msgstr "Спящий режим"
 
 #: src/sys_winx_menu.py:209
 msgid "Hibernate"
-msgstr ""
+msgstr "Гибернация"
 
 #: src/sys_winx_menu.py:210
-#, fuzzy
-msgid "Shut down"
-msgstr "Выключить"
-
-#: src/sys_winx_menu.py:211
-msgid "Restart"
-msgstr "Перезагрузить"
+msgid "Shutdown"
+msgstr "Завершение работы"
 
 #: src/sys_winx_menu.py:213
 msgid "Desktop"
-msgstr ""
+msgstr "Рабочий стол"
 
 #: src/start-menu.desktop.in:3
 msgid "Start Menu"
@@ -194,48 +239,4 @@ msgstr "Меню «Пуск»"
 
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
-msgstr "Настраиваемое меню «Пуск» и системное всплывающее меню Win+X"
-
-#, fuzzy
-#~ msgid "Term_inal"
-#~ msgstr "Терминал"
-
-#, fuzzy
-#~ msgid "Terminal (_Admin)"
-#~ msgstr "Терминал"
-
-#~ msgid "Left-click"
-#~ msgstr "Left-click"
-
-#~ msgid "Applications Menu"
-#~ msgstr "Меню приложений"
-
-#~ msgid "Right-click"
-#~ msgstr "Right-click"
-
-#~ msgid "Panel Preferences"
-#~ msgstr "Настройки панели"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Блокировка экрана"
-
-#~ msgid "Log Out"
-#~ msgstr "Выйти"
-
-#~ msgid "Suspend"
-#~ msgstr "Ждущий режим"
-
-#~ msgid "Shut Down"
-#~ msgstr "Выключить"
-
-#~ msgid "Path not found"
-#~ msgstr "Путь не найден"
-
-#~ msgid "No ID"
-#~ msgstr "Нет ID"
-
-#~ msgid "File:"
-#~ msgstr "Файл:"
-
-#~ msgid "Display Settings"
-#~ msgstr "Параметры экрана"
+msgstr "Настраиваемое меню «Пуск» и системное меню Win+X"

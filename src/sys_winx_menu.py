@@ -32,7 +32,7 @@ DEFAULT_WINX_KEYS = {
     "file_explorer":    "E",
     "search":           "S",
     "run":              "R",
-    "shutdown_menu":    "U",  # открытие подменю "Shut down or sign out"
+    "shutdown_menu":    "U",  # открытие подменю "Shutdown or sign out"
     "logout":           "I",  # внутри подменю выключения
     "suspend":          "S",
     "hibernate":        "H",
@@ -203,11 +203,11 @@ def get_winx_schema():
         (_("Search"),               "search"),
         (_("Run"),                  "run"),
         None,
-        (_("Shut down or sign out"), ("shutdown_menu", [
+        (_("Shutdown or sign out"), ("shutdown_menu", [
             (_("Sign out"),         "logout"),
             (_("Sleep"),            "suspend"),
             (_("Hibernate"),        "hibernate"),
-            (_("Shut down"),        "halt"),
+            (_("Shutdown"),         "halt"),
             (_("Restart"),          "reboot"),
         ])),
         (_("Desktop"),              "desktop"),

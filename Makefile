@@ -45,15 +45,9 @@ CFLAGS = -Wall -O2 -fPIC \
          $(shell pkg-config --cflags $(PKGS))
 LDFLAGS = -shared $(shell pkg-config --libs $(PKGS))
 
-# Localization & Desktop files
-#PY_FILES = \
-#    src/start-menu-sys.py \
-#    src/sys_actions.py \
-#    src/sys_i18n.py \
-#    src/sys_winx_menu.py \
-#    src/start-menu-app.py
-
+# Python modules & Localization files
 SYS_MODULES = $(wildcard src/sys_*.py)
+PY_TRANSLATABLE = src/start-menu-sys.py src/start-menu-app.py $(SYS_MODULES)
 
 DESKTOP_IN = src/start-menu.desktop.in
 DESKTOP_OUT = src/start-menu.desktop
@@ -70,12 +64,12 @@ $(PLUGIN_LIB): $(PLUGIN_SRC)
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 	@echo "Built $(PLUGIN_LIB)"
 
-# 2. Extract translatable strings from Python and .desktop.in
-pot: $(SYS_MODULES) $(DESKTOP_IN)
+# 2. Extract translatable strings from all Python files and .desktop.in
+pot: $(PY_TRANSLATABLE) $(DESKTOP_IN)
 	@mkdir -p $(LOCALE_DIR)
 	xgettext --language=Python --keyword=_ --from-code=UTF-8 \
 		--package-name=$(DOMAIN) \
-		--output=$(POT_FILE) $(SYS_MODULES)
+		--output=$(POT_FILE) $(PY_TRANSLATABLE)
 	xgettext --language=Desktop --join-existing --from-code=UTF-8 \
 		--output=$(POT_FILE) $(DESKTOP_IN)
 	@echo "Updated template $(POT_FILE)"
@@ -117,84 +111,45 @@ desktop: mo $(DESKTOP_IN) VERSION
 	sed -i -E 's/^(Name(\[[^]]+\])?=.*)$$/\1  Ver. $(VERSION)/' $(DESKTOP_OUT)
 	@echo "Generated $(DESKTOP_OUT) (v$(VERSION))"
 
-
-## 6. Install plugin, scripts, desktop file, and compiled locales to the system
-#install: all
-#	install -Dm755 $(PLUGIN_LIB) $(DESTDIR)$(LIBDIR)/$(PLUGIN_LIB)
-#	install -Dm644 $(DESKTOP_OUT) $(DESTDIR)$(DATADIR)/$(DESKTOP_OUT)
-#	install -Dm644 src/start-menu-sys.py $(DESTDIR)$(PLUGIN_DIR)/start-menu-sys.py
-#	install -Dm755 src/start-menu-app.py $(DESTDIR)$(PLUGIN_DIR)/start-menu-app.py
-#	install -Dm644 VERSION $(DESTDIR)$(PLUGIN_DIR)/VERSION
-#	@for lang in $(LANGS); do \
-#		mo_file="$(LOCALE_DIR)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
-#		if [ -f "$$mo_file" ]; then \
-#			install -v -Dm644 "$$mo_file" "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
-#		fi; \
-#	done
-#	@echo ""
-#	@ls -la $(DESTDIR)$(LIBDIR)/$(PLUGIN_LIB) \
-#			$(DESTDIR)$(DATADIR)/$(DESKTOP_OUT) \
-#			$(DESTDIR)$(PLUGIN_DIR)/start-menu-sys.py \
-#			$(DESTDIR)$(PLUGIN_DIR)/start-menu-app.py
-#	@for lang in $(LANGS); do \
-#	    ls -la "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo" ; \
-#	done
-#	@echo "Installation complete."
-#	@echo ""
-#	@echo "Restart xfce4-panel with: xfce4-panel -r"
-#	@echo ""
-
-
-SYS_MODULES = $(wildcard src/sys_*.py)
-
+# 6. Install plugin, scripts, desktop file, and compiled locales to the system
 install: all
-	    install -Dm755 $(PLUGIN_LIB) $(DESTDIR)$(LIBDIR)/$(PLUGIN_LIB)
-	    install -Dm644 $(DESKTOP_OUT) $(DESTDIR)$(DATADIR)/$(DESKTOP_OUT)
-	    install -Dm644 src/start-menu-sys.py $(DESTDIR)$(PLUGIN_DIR)/start-menu-sys.py
-	    install -Dm755 src/start-menu-app.py $(DESTDIR)$(PLUGIN_DIR)/start-menu-app.py
-	    @for mod in $(SYS_MODULES); do \
-	        install -Dm644 "$$mod" "$(DESTDIR)$(PLUGIN_DIR)/$$(basename $$mod)"; \
-	    done
-	    install -Dm644 VERSION $(DESTDIR)$(PLUGIN_DIR)/VERSION
-	    @for lang in $(LANGS); do \
-	        mo_file="$(LOCALE_DIR)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
-	        if [ -f "$$mo_file" ]; then \
-	            install -v -Dm644 "$$mo_file" "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
-	        fi; \
-	    done
-	    @echo ""
-	    @ls -la $(DESTDIR)$(LIBDIR)/$(PLUGIN_LIB) \
-	            $(DESTDIR)$(DATADIR)/$(DESKTOP_OUT) \
-	            $(DESTDIR)$(PLUGIN_DIR)/*.py
-	    @for lang in $(LANGS); do \
-	        ls -la "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo" ; \
-	    done
-	    @echo "Installation complete."
-	    @echo ""
-	    @echo "Restart xfce4-panel with: xfce4-panel -r"
-	    @echo ""
+	install -Dm755 $(PLUGIN_LIB) $(DESTDIR)$(LIBDIR)/$(notdir $(PLUGIN_LIB))
+	install -Dm644 $(DESKTOP_OUT) $(DESTDIR)$(DATADIR)/$(notdir $(DESKTOP_OUT))
+	install -Dm644 src/start-menu-sys.py $(DESTDIR)$(PLUGIN_DIR)/start-menu-sys.py
+	install -Dm755 src/start-menu-app.py $(DESTDIR)$(PLUGIN_DIR)/start-menu-app.py
+	@for mod in $(SYS_MODULES); do \
+		install -Dm644 "$$mod" "$(DESTDIR)$(PLUGIN_DIR)/$$(basename $$mod)"; \
+	done
+	install -Dm644 VERSION $(DESTDIR)$(PLUGIN_DIR)/VERSION
+	@for lang in $(LANGS); do \
+		mo_file="$(LOCALE_DIR)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
+		if [ -f "$$mo_file" ]; then \
+			install -v -Dm644 "$$mo_file" "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
+		fi; \
+	done
+	@echo ""
+	@ls -la $(DESTDIR)$(LIBDIR)/$(notdir $(PLUGIN_LIB)) \
+	        $(DESTDIR)$(DATADIR)/$(notdir $(DESKTOP_OUT)) \
+	        $(DESTDIR)$(PLUGIN_DIR)/*.py
+	@for lang in $(LANGS); do \
+		ls -la "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo" ; \
+	done
+	@echo "Installation complete."
+	@echo ""
+	@echo "Restart xfce4-panel with: xfce4-panel -r"
+	@echo ""
 
 # 7. Remove installed files from the system
-#uninstall:
-#	rm -f $(DESTDIR)$(LIBDIR)/$(PLUGIN_LIB)
-#	rm -f $(DESTDIR)$(DATADIR)/$(DESKTOP_OUT)
-#	rm -rf $(DESTDIR)$(PLUGIN_DIR)
-#	@for lang in $(LANGS); do \
-#		rm -f "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
-#	done
-#	@echo "Uninstallation complete."
- 
 uninstall:
-	rm -f $(DESTDIR)$(LIBDIR)/$(PLUGIN_LIB)
-	rm -f $(DESTDIR)$(DATADIR)/$(DESKTOP_OUT)
+	rm -f $(DESTDIR)$(LIBDIR)/$(notdir $(PLUGIN_LIB))
+	rm -f $(DESTDIR)$(DATADIR)/$(notdir $(DESKTOP_OUT))
 	@if [ -n "$(PLUGIN_DIR)" ] && [ "$(PLUGIN_DIR)" != "/" ]; then \
-	    rm -rf "$(DESTDIR)$(PLUGIN_DIR)"; \
+		rm -rf "$(DESTDIR)$(PLUGIN_DIR)"; \
 	fi
 	@for lang in $(LANGS); do \
-	    rm -f "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
+		rm -f "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
 	done
 	@echo "Uninstallation complete."
-
 
 # Clean generated build artifacts (keeps .po files intact)
 clean:
