@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 12:22+0500\n"
+"POT-Creation-Date: 2026-11-22 21:43+0500\n"
 "PO-Revision-Date: 2026-11-21 12:25+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: Arabic\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: src/start-menu-sys.py:31
 msgid "Left-click"
-msgstr "نقر بالزر الأيسر"
+msgstr "نقرة يسار"
 
 #: src/start-menu-sys.py:31
 msgid "Applications Menu"
@@ -27,28 +27,28 @@ msgstr "قائمة التطبيقات"
 
 #: src/start-menu-sys.py:32 src/start-menu-sys.py:33
 msgid "Right-click"
-msgstr "نقر بالزر الأيمن"
+msgstr "نقرة يمين"
 
-#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
-#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+#: src/start-menu-sys.py:32 src/sys_actions.py:51 src/sys_actions.py:81
+#: src/sys_actions.py:356 src/sys_shortcuts.py:153
 msgid "System Menu"
 msgstr "قائمة النظام"
 
 #: src/start-menu-sys.py:33
 msgid "Panel Preferences"
-msgstr "تفضيلات اللوحة"
+msgstr "تفضيلات الشريط"
 
 #: src/start-menu-app.py:131
 msgid "Lock Screen"
-msgstr ""
+msgstr "قفل الشاشة"
 
 #: src/start-menu-app.py:132
 msgid "Log Out"
-msgstr ""
+msgstr "تسجيل الخروج"
 
 #: src/start-menu-app.py:134
 msgid "Suspend"
-msgstr ""
+msgstr "تعليق"
 
 #: src/start-menu-app.py:135 src/sys_winx_menu.py:211
 msgid "Restart"
@@ -60,17 +60,26 @@ msgstr "إيقاف التشغيل"
 
 #: src/start-menu-app.py:526
 msgid "Path not found"
-msgstr ""
+msgstr "المسار غير موجود"
 
 #: src/start-menu-app.py:527
 msgid "No ID"
-msgstr ""
+msgstr "لا يوجد معرف"
 
 #: src/start-menu-app.py:528
 msgid "File:"
-msgstr ""
+msgstr "الملف:"
 
-#: src/sys_actions.py:69
+#: src/sys_actions.py:52
+#, python-brace-format
+msgid ""
+"Failed to execute command '{cmd}':\n"
+"{err}"
+msgstr ""
+"فشل تنفيذ الأمر '{cmd}':\n"
+"{err}"
+
+#: src/sys_actions.py:73
 #, python-brace-format
 msgid ""
 "Application '{bin}' is not installed.\n"
@@ -79,35 +88,183 @@ msgstr ""
 "التطبيق '{bin}' غير مثبت.\n"
 "هل تريد تثبيت الحزمة '{pkg}' الآن؟"
 
-#: src/sys_actions.py:82
+#: src/sys_actions.py:86
 msgid "Installation complete. You can close this terminal."
 msgstr "اكتمل التثبيت. يمكنك إغلاق هذه الطرفية."
 
-#: src/sys_actions.py:83
+#: src/sys_actions.py:87
 msgid "Installation failed! You can close this terminal."
 msgstr "فشل التثبيت! يمكنك إغلاق هذه الطرفية."
 
-#: src/sys_actions.py:133
+#: src/sys_actions.py:172
+#, python-brace-format
+msgid ""
+"Continue with\n"
+"{cmd}"
+msgstr ""
+"المتابعة باستخدام\n"
+"{cmd}"
+
+#: src/sys_actions.py:173 src/sys_cmd.py:146
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: src/sys_actions.py:189
+#, python-brace-format
+msgid ""
+"Command '{bin}' is not installed on your system, and package '{pkg}' was not "
+"found in available software repositories.\n"
+"\n"
+"Check the 'cmd' and 'pkg' values for '{key}' in:\n"
+"{path}"
+msgstr ""
+"الأمر '{bin}' غير مثبت على نظامك، ولم يتم العثور على الحزمة '{pkg}' في "
+"مستودعات البرامج المتاحة.\n"
+"\n"
+"تحقق من قيم 'cmd' و 'pkg' لـ '{key}' في:\n"
+"{path}"
+
+#: src/sys_actions.py:193 src/sys_actions.py:350 src/sys_actions.py:372
+msgid "System Menu — Configuration Error"
+msgstr "قائمة النظام — خطأ في التكوين"
+
+#: src/sys_actions.py:230
+#, python-brace-format
+msgid ""
+"Check file:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"تحقق من الملف:\n"
+"{path}\n"
+"\n"
+"(أو احذف الملف لاستعادة الإعدادات الافتراضية)\n"
+"\n"
+
+#: src/sys_actions.py:248
+#, python-brace-format
+msgid ""
+"Failed to read file:\n"
+"{path}\n"
+"\n"
+"{err}"
+msgstr ""
+"فشلت قراءة الملف:\n"
+"{path}\n"
+"\n"
+"{err}"
+
+#: src/sys_actions.py:263
+#, python-brace-format
+msgid ""
+"JSON syntax error in configuration file (line {line}, column {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+msgstr ""
+"خطأ في صيغة JSON في ملف التكوين (السطر {line}، العمود {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:267
+#, python-brace-format
+msgid ""
+"Configuration error:\n"
+"{err}\n"
+"\n"
+"{hint}"
+msgstr ""
+"خطأ في التكوين:\n"
+"{err}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:283
+#, python-brace-format
+msgid ""
+"Empty command specified for menu item '{key}'.\n"
+"Enter a valid command or reset the setting.\n"
+"\n"
+"{hint}"
+msgstr ""
+"تم تحديد أمر فارغ لعنصر القائمة '{key}'.\n"
+"أدخل أمرًا صالحًا أو أعد ضبط الإعداد.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:297
+#, python-brace-format
+msgid ""
+"Invalid command ('cmd') for menu item '{key}'.\n"
+"The value must be a non-empty string or null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"أمر غير صالح ('cmd') لعنصر القائمة '{key}'.\n"
+"يجب أن تكون القيمة سلسلة غير فارغة أو null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:307
+#, python-brace-format
+msgid ""
+"Invalid package name ('pkg') for menu item '{key}'.\n"
+"Specify a valid APT package name or set 'pkg' to null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"اسم حزمة غير صالح ('pkg') لعنصر القائمة '{key}'.\n"
+"حدد اسم حزمة APT صالحًا أو اضبط 'pkg' على null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:325
+#, python-brace-format
+msgid ""
+"Invalid configuration format for menu item '{key}'.\n"
+"Expected a command string or an object {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+msgstr ""
+"تنسيق تكوين غير صالح لعنصر القائمة '{key}'.\n"
+"يُتوقع سلسلة أمر أو كائن {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:356
 msgid ""
 "No suitable application.\n"
 "Under developing..."
 msgstr ""
-"لم يتم العثور على تطبيق مناسب.\n"
+"لا يوجد تطبيق مناسب.\n"
 "قيد التطوير..."
 
-#: src/sys_actions.py:146
+#: src/sys_actions.py:367
 #, python-brace-format
-msgid "Command '{bin}' not found."
-msgstr "الأمر '{bin}' غير موجود."
+msgid ""
+"Invalid command syntax for menu item '{key}'.\n"
+"Check the quotes and arguments in:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"صيغة أمر غير صالحة لعنصر القائمة '{key}'.\n"
+"تحقق من علامات الاقتباس والوسائط في:\n"
+"{path}\n"
+"\n"
+"(أو احذف الملف لاستعادة الإعدادات الافتراضية)\n"
+"\n"
 
 #: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
 #: src/sys_winx_menu.py:204
 msgid "Run"
 msgstr "تشغيل"
-
-#: src/sys_cmd.py:146
-msgid "Cancel"
-msgstr "إلغاء الأمر"
 
 #: src/sys_cmd.py:158
 msgid "Type the name of a program, folder, or command to run:"
@@ -115,12 +272,12 @@ msgstr "اكتب اسم برنامج أو مجلد أو أمر لتشغيله:"
 
 #: src/sys_cmd.py:173
 msgid "Command... (Tab to complete)"
-msgstr "أمر... (اضغط Tab للإكمال التلقائي)"
+msgstr "أمر... (اضغط Tab للإكمال)"
 
 #: src/sys_cmd.py:332
 #, python-brace-format
 msgid "Failed to run '{cmd}'"
-msgstr "تعذر تشغيل '{cmd}'"
+msgstr "فشل تشغيل '{cmd}'"
 
 #: src/sys_shortcuts.py:151
 msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
@@ -135,8 +292,8 @@ msgid ""
 "\n"
 msgstr ""
 "هل تريد إصلاح الاختصارات غير المتوافقة الآن؟\n"
-"إذا تُركت كما هي، فقد تعمل مفاتيح اختصار قائمة النظام بشكل غير مستقر.\n"
-"يمكنك أيضاً مراجعتها يدوياً في: الإعدادات ← لوحة المفاتيح ← اختصارات "
+"إذا تُركت كما هي، فقد تعمل مفاتيح الاختصار لقائمة النظام بشكل غير مستقر.\n"
+"يمكنك أيضًا مراجعتها يدويًا في: الإعدادات ← لوحة المفاتيح ← اختصارات "
 "التطبيقات.\n"
 "\n"
 
@@ -146,7 +303,7 @@ msgstr "تركها كما هي"
 
 #: src/sys_shortcuts.py:164
 msgid "Open Keyboard..."
-msgstr "فتح لوحة المفاتيح..."
+msgstr "فتح إعدادات لوحة المفاتيح..."
 
 #: src/sys_shortcuts.py:165
 msgid "Fix now"
@@ -190,11 +347,11 @@ msgstr "الطرفية"
 
 #: src/sys_winx_menu.py:198
 msgid "Terminal (Admin)"
-msgstr "الطرفية (المسؤول)"
+msgstr "الطرفية (مسؤول)"
 
 #: src/sys_winx_menu.py:200
 msgid "Task Manager"
-msgstr "إدارة المهام"
+msgstr "مدير المهام"
 
 #: src/sys_winx_menu.py:201
 msgid "Settings"
@@ -222,7 +379,7 @@ msgstr "سكون"
 
 #: src/sys_winx_menu.py:209
 msgid "Hibernate"
-msgstr "إسبات"
+msgstr "سبات"
 
 #: src/sys_winx_menu.py:210
 msgid "Shutdown"

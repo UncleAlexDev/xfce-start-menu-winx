@@ -17,7 +17,8 @@ TMPDIR="${WORKDIR}/${BACKUPNAME}"
 mkdir -p "${TMPDIR}" | exit 1
 cp -r . "${TMPDIR}" | exit 1
 
-cmd="zip -r -q -9 ${BACKUPDIR}/${BACKUPNAME}.zip ${BACKUPNAME}"
+#cmd="zip -r -q -9 ${BACKUPDIR}/${BACKUPNAME}.zip ${BACKUPNAME}"
+cmd="7z a -mx9 ${BACKUPDIR}/${BACKUPNAME}.7z ${BACKUPNAME}"
 echo "$cmd"
 
 (cd $WORKDIR && $cmd)

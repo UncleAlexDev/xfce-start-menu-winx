@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 11:59+0500\n"
+"POT-Creation-Date: 2026-11-22 21:43+0500\n"
 "PO-Revision-Date: 2026-11-21 11:50+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: Russian\n"
@@ -29,26 +29,26 @@ msgstr "Меню приложений"
 msgid "Right-click"
 msgstr "Right-click"
 
-#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
-#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+#: src/start-menu-sys.py:32 src/sys_actions.py:51 src/sys_actions.py:81
+#: src/sys_actions.py:356 src/sys_shortcuts.py:153
 msgid "System Menu"
 msgstr "Системное меню"
 
 #: src/start-menu-sys.py:33
 msgid "Panel Preferences"
-msgstr "Свойства панели"
+msgstr "Настройки панели"
 
 #: src/start-menu-app.py:131
 msgid "Lock Screen"
-msgstr "Блокровка экрана"
+msgstr "Блокировка экрана"
 
 #: src/start-menu-app.py:132
 msgid "Log Out"
-msgstr "Завершиь сессию"
+msgstr "Завершить сеанс"
 
 #: src/start-menu-app.py:134
 msgid "Suspend"
-msgstr "Спящий режим"
+msgstr "Ждущий режим"
 
 #: src/start-menu-app.py:135 src/sys_winx_menu.py:211
 msgid "Restart"
@@ -56,7 +56,7 @@ msgstr "Перезагрузка"
 
 #: src/start-menu-app.py:136
 msgid "ShutDown"
-msgstr "Завершение работы"
+msgstr "Выключение"
 
 #: src/start-menu-app.py:526
 msgid "Path not found"
@@ -64,13 +64,22 @@ msgstr "Путь не найден"
 
 #: src/start-menu-app.py:527
 msgid "No ID"
-msgstr "No ID"
+msgstr "Нет ID"
 
 #: src/start-menu-app.py:528
 msgid "File:"
 msgstr "Файл:"
 
-#: src/sys_actions.py:69
+#: src/sys_actions.py:52
+#, python-brace-format
+msgid ""
+"Failed to execute command '{cmd}':\n"
+"{err}"
+msgstr ""
+"Не удалось выполнить команду «{cmd}»:\n"
+"{err}"
+
+#: src/sys_actions.py:73
 #, python-brace-format
 msgid ""
 "Application '{bin}' is not installed.\n"
@@ -79,52 +88,201 @@ msgstr ""
 "Приложение «{bin}» не установлено.\n"
 "Установить пакет «{pkg}» сейчас?"
 
-#: src/sys_actions.py:82
+#: src/sys_actions.py:86
 msgid "Installation complete. You can close this terminal."
 msgstr "Установка завершена. Вы можете закрыть этот терминал."
 
-#: src/sys_actions.py:83
+#: src/sys_actions.py:87
 msgid "Installation failed! You can close this terminal."
 msgstr "Ошибка установки! Вы можете закрыть этот терминал."
 
-#: src/sys_actions.py:133
+#: src/sys_actions.py:172
+#, python-brace-format
+msgid ""
+"Continue with\n"
+"{cmd}"
+msgstr ""
+"Продолжить с\n"
+"{cmd}"
+
+#: src/sys_actions.py:173 src/sys_cmd.py:146
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/sys_actions.py:189
+#, python-brace-format
+msgid ""
+"Command '{bin}' is not installed on your system, and package '{pkg}' was not "
+"found in available software repositories.\n"
+"\n"
+"Check the 'cmd' and 'pkg' values for '{key}' in:\n"
+"{path}"
+msgstr ""
+"Команда «{bin}» не установлена в системе, а пакет «{pkg}» не найден в "
+"подключённых репозиториях.\n"
+"\n"
+"Проверьте значения 'cmd' и 'pkg' для «{key}» в файле:\n"
+"{path}"
+
+#: src/sys_actions.py:193 src/sys_actions.py:350 src/sys_actions.py:372
+msgid "System Menu — Configuration Error"
+msgstr "Системное меню — ошибка конфигурации"
+
+#: src/sys_actions.py:230
+#, python-brace-format
+msgid ""
+"Check file:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"Проверьте файл:\n"
+"{path}\n"
+"\n"
+"(или удалите файл, чтобы восстановить настройки по умолчанию)\n"
+"\n"
+
+#: src/sys_actions.py:248
+#, python-brace-format
+msgid ""
+"Failed to read file:\n"
+"{path}\n"
+"\n"
+"{err}"
+msgstr ""
+"Не удалось прочитать файл:\n"
+"{path}\n"
+"\n"
+"{err}"
+
+#: src/sys_actions.py:263
+#, python-brace-format
+msgid ""
+"JSON syntax error in configuration file (line {line}, column {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+msgstr ""
+"Синтаксическая ошибка JSON в файле конфигурации (строка {line}, столбец "
+"{col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:267
+#, python-brace-format
+msgid ""
+"Configuration error:\n"
+"{err}\n"
+"\n"
+"{hint}"
+msgstr ""
+"Ошибка конфигурации:\n"
+"{err}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:283
+#, python-brace-format
+msgid ""
+"Empty command specified for menu item '{key}'.\n"
+"Enter a valid command or reset the setting.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Для пункта меню «{key}» указана пустая команда.\n"
+"Введите корректную команду или сбросьте настройку.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:297
+#, python-brace-format
+msgid ""
+"Invalid command ('cmd') for menu item '{key}'.\n"
+"The value must be a non-empty string or null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Некорректная команда ('cmd') для пункта меню «{key}».\n"
+"Значение должно быть непустой строкой или null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:307
+#, python-brace-format
+msgid ""
+"Invalid package name ('pkg') for menu item '{key}'.\n"
+"Specify a valid APT package name or set 'pkg' to null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Некорректное имя пакета ('pkg') для пункта меню «{key}».\n"
+"Укажите существующее имя APT-пакета или задайте null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:325
+#, python-brace-format
+msgid ""
+"Invalid configuration format for menu item '{key}'.\n"
+"Expected a command string or an object {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Неверный формат настройки для пункта меню «{key}».\n"
+"Ожидается строка с командой или объект {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:356
 msgid ""
 "No suitable application.\n"
 "Under developing..."
 msgstr ""
 "Подходящее приложение не найдено.\n"
-"В разработке..."
+"Функция в разработке..."
 
-#: src/sys_actions.py:146
+#: src/sys_actions.py:367
 #, python-brace-format
-msgid "Command '{bin}' not found."
-msgstr "Команда «{bin}» не найдена."
+msgid ""
+"Invalid command syntax for menu item '{key}'.\n"
+"Check the quotes and arguments in:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"Ошибка синтаксиса команды для пункта меню «{key}».\n"
+"Проверьте кавычки и аргументы в файле:\n"
+"{path}\n"
+"\n"
+"(или удалите файл, чтобы восстановить настройки по умолчанию)\n"
+"\n"
 
 #: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
 #: src/sys_winx_menu.py:204
 msgid "Run"
 msgstr "Выполнить"
 
-#: src/sys_cmd.py:146
-msgid "Cancel"
-msgstr "Отмена"
-
 #: src/sys_cmd.py:158
 msgid "Type the name of a program, folder, or command to run:"
-msgstr "Введите имя программы, папки или команду для запуска:"
+msgstr "Введите имя программы, папки или команды для запуска:"
 
 #: src/sys_cmd.py:173
 msgid "Command... (Tab to complete)"
-msgstr "Команда... (Tab — автодополнение)"
+msgstr "Команда... (Tab для автодополнения)"
 
 #: src/sys_cmd.py:332
 #, python-brace-format
 msgid "Failed to run '{cmd}'"
-msgstr "Не удалось выполнить «{cmd}»"
+msgstr "Не удалось запустить «{cmd}»"
 
 #: src/sys_shortcuts.py:151
 msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
-msgstr "Обнаружено несоответствие горячих клавиш для Xfce Start Menu."
+msgstr "Обнаружено несоответствие сочетаний клавиш для Xfce Start Menu."
 
 #: src/sys_shortcuts.py:156
 msgid ""
@@ -134,11 +292,11 @@ msgid ""
 "Shortcuts.\n"
 "\n"
 msgstr ""
-"Исправить несовместимые комбинации клавиш сейчас?\n"
+"Исправить несовместимые сочетания клавиш сейчас?\n"
 "Если оставить как есть, горячие клавиши системного меню могут работать "
 "нестабильно.\n"
-"Вы также можете проверить их вручную: Настройки → Клавиатура → Комбинации "
-"клавиш.\n"
+"Вы также можете проверить их вручную в разделе: Настройки → Клавиатура → "
+"Комбинации клавиш.\n"
 "\n"
 
 #: src/sys_shortcuts.py:163
@@ -147,7 +305,7 @@ msgstr "Оставить как есть"
 
 #: src/sys_shortcuts.py:164
 msgid "Open Keyboard..."
-msgstr "Открыть «Клавиатуру»..."
+msgstr "Открыть настройки клавиатуры..."
 
 #: src/sys_shortcuts.py:165
 msgid "Fix now"
@@ -159,7 +317,7 @@ msgstr "Установленные приложения"
 
 #: src/sys_winx_menu.py:189
 msgid "Power Options"
-msgstr "Управление электропитанием"
+msgstr "Электропитание"
 
 #: src/sys_winx_menu.py:190
 msgid "Event Viewer"
@@ -191,7 +349,7 @@ msgstr "Терминал"
 
 #: src/sys_winx_menu.py:198
 msgid "Terminal (Admin)"
-msgstr "Терминал (Администратор)"
+msgstr "Терминал (администратор)"
 
 #: src/sys_winx_menu.py:200
 msgid "Task Manager"
@@ -199,11 +357,11 @@ msgstr "Диспетчер задач"
 
 #: src/sys_winx_menu.py:201
 msgid "Settings"
-msgstr "Параметры"
+msgstr "Настройки"
 
 #: src/sys_winx_menu.py:202
 msgid "File Explorer"
-msgstr "Проводник"
+msgstr "Файловый менеджер"
 
 #: src/sys_winx_menu.py:203
 msgid "Search"
@@ -215,11 +373,11 @@ msgstr "Завершение работы или выход"
 
 #: src/sys_winx_menu.py:207
 msgid "Sign out"
-msgstr "Выйти из системы"
+msgstr "Выход"
 
 #: src/sys_winx_menu.py:208
 msgid "Sleep"
-msgstr "Спящий режим"
+msgstr "Сон"
 
 #: src/sys_winx_menu.py:209
 msgid "Hibernate"
@@ -235,8 +393,8 @@ msgstr "Рабочий стол"
 
 #: src/start-menu.desktop.in:3
 msgid "Start Menu"
-msgstr "Меню «Пуск»"
+msgstr "Меню Пуск"
 
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
-msgstr "Настраиваемое меню «Пуск» и системное меню Win+X"
+msgstr "Пользовательское меню «Пуск» и системное меню Win+X"

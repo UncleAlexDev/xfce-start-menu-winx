@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 12:37+0500\n"
+"POT-Creation-Date: 2026-11-22 21:43+0500\n"
 "PO-Revision-Date: 2026-11-21 12:55+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: Vietnamese\n"
@@ -22,55 +22,63 @@ msgstr "Nhấp chuột trái"
 
 #: src/start-menu-sys.py:31
 msgid "Applications Menu"
-msgstr "Menu Ứng dụng"
+msgstr "Menu ứng dụng"
 
 #: src/start-menu-sys.py:32 src/start-menu-sys.py:33
 msgid "Right-click"
 msgstr "Nhấp chuột phải"
 
-#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
-#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+#: src/start-menu-sys.py:32 src/sys_actions.py:51 src/sys_actions.py:81
+#: src/sys_actions.py:356 src/sys_shortcuts.py:153
 msgid "System Menu"
-msgstr "Menu Hệ thống"
+msgstr "Menu hệ thống"
 
 #: src/start-menu-sys.py:33
 msgid "Panel Preferences"
-msgstr "Tùy chọn Bảng điều khiển"
+msgstr "Tùy chọn bảng điều khiển"
 
 #: src/start-menu-app.py:131
 msgid "Lock Screen"
-msgstr ""
+msgstr "Khóa màn hình"
 
 #: src/start-menu-app.py:132
 msgid "Log Out"
-msgstr ""
+msgstr "Đăng xuất"
 
 #: src/start-menu-app.py:134
 msgid "Suspend"
-msgstr ""
+msgstr "Tạm ngưng"
 
 #: src/start-menu-app.py:135 src/sys_winx_menu.py:211
 msgid "Restart"
 msgstr "Khởi động lại"
 
 #: src/start-menu-app.py:136
-#, fuzzy
 msgid "ShutDown"
 msgstr "Tắt máy"
 
 #: src/start-menu-app.py:526
 msgid "Path not found"
-msgstr ""
+msgstr "Không tìm thấy đường dẫn"
 
 #: src/start-menu-app.py:527
 msgid "No ID"
-msgstr ""
+msgstr "Không có ID"
 
 #: src/start-menu-app.py:528
 msgid "File:"
-msgstr ""
+msgstr "Tệp:"
 
-#: src/sys_actions.py:69
+#: src/sys_actions.py:52
+#, python-brace-format
+msgid ""
+"Failed to execute command '{cmd}':\n"
+"{err}"
+msgstr ""
+"Không thể thực thi lệnh '{cmd}':\n"
+"{err}"
+
+#: src/sys_actions.py:73
 #, python-brace-format
 msgid ""
 "Application '{bin}' is not installed.\n"
@@ -79,43 +87,191 @@ msgstr ""
 "Ứng dụng '{bin}' chưa được cài đặt.\n"
 "Cài đặt gói '{pkg}' ngay bây giờ?"
 
-#: src/sys_actions.py:82
+#: src/sys_actions.py:86
 msgid "Installation complete. You can close this terminal."
 msgstr "Cài đặt hoàn tất. Bạn có thể đóng cửa sổ dòng lệnh này."
 
-#: src/sys_actions.py:83
+#: src/sys_actions.py:87
 msgid "Installation failed! You can close this terminal."
 msgstr "Cài đặt thất bại! Bạn có thể đóng cửa sổ dòng lệnh này."
 
-#: src/sys_actions.py:133
+#: src/sys_actions.py:172
+#, python-brace-format
+msgid ""
+"Continue with\n"
+"{cmd}"
+msgstr ""
+"Tiếp tục với\n"
+"{cmd}"
+
+#: src/sys_actions.py:173 src/sys_cmd.py:146
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/sys_actions.py:189
+#, python-brace-format
+msgid ""
+"Command '{bin}' is not installed on your system, and package '{pkg}' was not "
+"found in available software repositories.\n"
+"\n"
+"Check the 'cmd' and 'pkg' values for '{key}' in:\n"
+"{path}"
+msgstr ""
+"Lệnh '{bin}' chưa được cài đặt trên hệ thống của bạn và không tìm thấy gói "
+"'{pkg}' trong các kho phần mềm hiện có.\n"
+"\n"
+"Kiểm tra các giá trị 'cmd' và 'pkg' cho '{key}' trong:\n"
+"{path}"
+
+#: src/sys_actions.py:193 src/sys_actions.py:350 src/sys_actions.py:372
+msgid "System Menu — Configuration Error"
+msgstr "Menu hệ thống — Lỗi cấu hình"
+
+#: src/sys_actions.py:230
+#, python-brace-format
+msgid ""
+"Check file:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"Kiểm tra tệp:\n"
+"{path}\n"
+"\n"
+"(hoặc xóa tệp để khôi phục mặc định)\n"
+"\n"
+
+#: src/sys_actions.py:248
+#, python-brace-format
+msgid ""
+"Failed to read file:\n"
+"{path}\n"
+"\n"
+"{err}"
+msgstr ""
+"Không thể đọc tệp:\n"
+"{path}\n"
+"\n"
+"{err}"
+
+#: src/sys_actions.py:263
+#, python-brace-format
+msgid ""
+"JSON syntax error in configuration file (line {line}, column {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+msgstr ""
+"Lỗi cú pháp JSON trong tệp cấu hình (dòng {line}, cột {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:267
+#, python-brace-format
+msgid ""
+"Configuration error:\n"
+"{err}\n"
+"\n"
+"{hint}"
+msgstr ""
+"Lỗi cấu hình:\n"
+"{err}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:283
+#, python-brace-format
+msgid ""
+"Empty command specified for menu item '{key}'.\n"
+"Enter a valid command or reset the setting.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Lệnh trống được chỉ định cho mục menu '{key}'.\n"
+"Nhập lệnh hợp lệ hoặc đặt lại cài đặt.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:297
+#, python-brace-format
+msgid ""
+"Invalid command ('cmd') for menu item '{key}'.\n"
+"The value must be a non-empty string or null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Lệnh ('cmd') không hợp lệ cho mục menu '{key}'.\n"
+"Giá trị phải là chuỗi không rỗng hoặc null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:307
+#, python-brace-format
+msgid ""
+"Invalid package name ('pkg') for menu item '{key}'.\n"
+"Specify a valid APT package name or set 'pkg' to null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Tên gói không hợp lệ ('pkg') cho mục menu '{key}'.\n"
+"Chỉ định tên gói APT hợp lệ hoặc đặt 'pkg' thành null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:325
+#, python-brace-format
+msgid ""
+"Invalid configuration format for menu item '{key}'.\n"
+"Expected a command string or an object {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Định dạng cấu hình không hợp lệ cho mục menu '{key}'.\n"
+"Yêu cầu chuỗi lệnh hoặc đối tượng {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:356
 msgid ""
 "No suitable application.\n"
 "Under developing..."
 msgstr ""
-"Không tìm thấy ứng dụng phù hợp.\n"
+"Không có ứng dụng phù hợp.\n"
 "Đang phát triển..."
 
-#: src/sys_actions.py:146
+#: src/sys_actions.py:367
 #, python-brace-format
-msgid "Command '{bin}' not found."
-msgstr "Không tìm thấy lệnh '{bin}'."
+msgid ""
+"Invalid command syntax for menu item '{key}'.\n"
+"Check the quotes and arguments in:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"Cú pháp lệnh không hợp lệ cho mục menu '{key}'.\n"
+"Kiểm tra dấu ngoặc kép và đối số trong:\n"
+"{path}\n"
+"\n"
+"(hoặc xóa tệp để khôi phục mặc định)\n"
+"\n"
 
 #: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
 #: src/sys_winx_menu.py:204
 msgid "Run"
 msgstr "Chạy"
 
-#: src/sys_cmd.py:146
-msgid "Cancel"
-msgstr "Hủy"
-
 #: src/sys_cmd.py:158
 msgid "Type the name of a program, folder, or command to run:"
-msgstr "Nhập tên chương trình, thư mục hoặc lệnh để chạy:"
+msgstr "Nhập tên chương trình, thư mục hoặc lệnh cần chạy:"
 
 #: src/sys_cmd.py:173
 msgid "Command... (Tab to complete)"
-msgstr "Lệnh... (Nhấn Tab để tự động hoàn tất)"
+msgstr "Lệnh... (Nhấn Tab để hoàn tất)"
 
 #: src/sys_cmd.py:332
 #, python-brace-format
@@ -135,7 +291,8 @@ msgid ""
 "\n"
 msgstr ""
 "Sửa các phím tắt không tương thích ngay bây giờ?\n"
-"Nếu giữ nguyên, phím tắt của menu hệ thống có thể hoạt động không ổn định.\n"
+"Nếu giữ nguyên, các phím nóng của menu hệ thống có thể hoạt động không ổn "
+"định.\n"
 "Bạn cũng có thể kiểm tra thủ công tại: Cài đặt → Bàn phím → Phím tắt ứng "
 "dụng.\n"
 "\n"
@@ -146,7 +303,7 @@ msgstr "Giữ nguyên"
 
 #: src/sys_shortcuts.py:164
 msgid "Open Keyboard..."
-msgstr "Mở Bàn phím..."
+msgstr "Mở cài đặt bàn phím..."
 
 #: src/sys_shortcuts.py:165
 msgid "Fix now"
@@ -158,11 +315,11 @@ msgstr "Ứng dụng đã cài đặt"
 
 #: src/sys_winx_menu.py:189
 msgid "Power Options"
-msgstr "Tùy chọn Nguồn"
+msgstr "Tùy chọn nguồn"
 
 #: src/sys_winx_menu.py:190
 msgid "Event Viewer"
-msgstr "Trình xem Sự kiện"
+msgstr "Trình xem sự kiện"
 
 #: src/sys_winx_menu.py:191
 msgid "System"
@@ -170,31 +327,31 @@ msgstr "Hệ thống"
 
 #: src/sys_winx_menu.py:192
 msgid "Device Manager"
-msgstr "Trình quản lý Thiết bị"
+msgstr "Trình quản lý thiết bị"
 
 #: src/sys_winx_menu.py:193
 msgid "Network Connections"
-msgstr "Kết nối Mạng"
+msgstr "Kết nối mạng"
 
 #: src/sys_winx_menu.py:194
 msgid "Disk Management"
-msgstr "Quản lý Đĩa"
+msgstr "Quản lý ổ đĩa"
 
 #: src/sys_winx_menu.py:195
 msgid "Computer Management"
-msgstr "Quản lý Máy tính"
+msgstr "Quản lý máy tính"
 
 #: src/sys_winx_menu.py:197
 msgid "Terminal"
-msgstr "Cửa sổ dòng lệnh"
+msgstr "Thiết bị đầu cuối"
 
 #: src/sys_winx_menu.py:198
 msgid "Terminal (Admin)"
-msgstr "Cửa sổ dòng lệnh (Quản trị)"
+msgstr "Thiết bị đầu cuối (Quản trị)"
 
 #: src/sys_winx_menu.py:200
 msgid "Task Manager"
-msgstr "Trình quản lý Tác vụ"
+msgstr "Trình quản lý tác vụ"
 
 #: src/sys_winx_menu.py:201
 msgid "Settings"
@@ -202,7 +359,7 @@ msgstr "Cài đặt"
 
 #: src/sys_winx_menu.py:202
 msgid "File Explorer"
-msgstr "Trình khám phá Tệp"
+msgstr "Trình quản lý tệp"
 
 #: src/sys_winx_menu.py:203
 msgid "Search"
@@ -238,4 +395,4 @@ msgstr "Menu Bắt đầu"
 
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
-msgstr "Menu Bắt đầu tùy chỉnh và menu hệ thống Win+X"
+msgstr "Menu Bắt đầu tùy chỉnh và menu hệ thống bật lên Win+X"

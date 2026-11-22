@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 12:22+0500\n"
+"POT-Creation-Date: 2026-11-22 21:43+0500\n"
 "PO-Revision-Date: 2026-11-21 12:15+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: Danish\n"
@@ -28,8 +28,8 @@ msgstr "Programmenu"
 msgid "Right-click"
 msgstr "Højreklik"
 
-#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
-#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+#: src/start-menu-sys.py:32 src/sys_actions.py:51 src/sys_actions.py:81
+#: src/sys_actions.py:356 src/sys_shortcuts.py:153
 msgid "System Menu"
 msgstr "Systemmenu"
 
@@ -39,15 +39,15 @@ msgstr "Panelindstillinger"
 
 #: src/start-menu-app.py:131
 msgid "Lock Screen"
-msgstr ""
+msgstr "Lås skærm"
 
 #: src/start-menu-app.py:132
 msgid "Log Out"
-msgstr ""
+msgstr "Log ud"
 
 #: src/start-menu-app.py:134
 msgid "Suspend"
-msgstr ""
+msgstr "Hvile"
 
 #: src/start-menu-app.py:135 src/sys_winx_menu.py:211
 msgid "Restart"
@@ -55,21 +55,30 @@ msgstr "Genstart"
 
 #: src/start-menu-app.py:136
 msgid "ShutDown"
-msgstr "Luk computeren"
+msgstr "Luk ned"
 
 #: src/start-menu-app.py:526
 msgid "Path not found"
-msgstr ""
+msgstr "Sti ikke fundet"
 
 #: src/start-menu-app.py:527
 msgid "No ID"
-msgstr ""
+msgstr "Intet ID"
 
 #: src/start-menu-app.py:528
 msgid "File:"
-msgstr ""
+msgstr "Fil:"
 
-#: src/sys_actions.py:69
+#: src/sys_actions.py:52
+#, python-brace-format
+msgid ""
+"Failed to execute command '{cmd}':\n"
+"{err}"
+msgstr ""
+"Kunne ikke køre kommandoen '{cmd}':\n"
+"{err}"
+
+#: src/sys_actions.py:73
 #, python-brace-format
 msgid ""
 "Application '{bin}' is not installed.\n"
@@ -78,44 +87,193 @@ msgstr ""
 "Programmet '{bin}' er ikke installeret.\n"
 "Vil du installere pakken '{pkg}' nu?"
 
-#: src/sys_actions.py:82
+#: src/sys_actions.py:86
 msgid "Installation complete. You can close this terminal."
 msgstr "Installationen er fuldført. Du kan lukke denne terminal."
 
-#: src/sys_actions.py:83
+#: src/sys_actions.py:87
 msgid "Installation failed! You can close this terminal."
 msgstr "Installationen mislykkedes! Du kan lukke denne terminal."
 
-#: src/sys_actions.py:133
+#: src/sys_actions.py:172
+#, python-brace-format
+msgid ""
+"Continue with\n"
+"{cmd}"
+msgstr ""
+"Fortsæt med\n"
+"{cmd}"
+
+#: src/sys_actions.py:173 src/sys_cmd.py:146
+msgid "Cancel"
+msgstr "Annuller"
+
+#: src/sys_actions.py:189
+#, python-brace-format
+msgid ""
+"Command '{bin}' is not installed on your system, and package '{pkg}' was not "
+"found in available software repositories.\n"
+"\n"
+"Check the 'cmd' and 'pkg' values for '{key}' in:\n"
+"{path}"
+msgstr ""
+"Kommandoen '{bin}' er ikke installeret på dit system, og pakken '{pkg}' blev "
+"ikke fundet i de tilgængelige pakkearkiver.\n"
+"\n"
+"Kontrollér værdierne for 'cmd' og 'pkg' for '{key}' i:\n"
+"{path}"
+
+#: src/sys_actions.py:193 src/sys_actions.py:350 src/sys_actions.py:372
+msgid "System Menu — Configuration Error"
+msgstr "Systemmenu — Konfigurationsfejl"
+
+#: src/sys_actions.py:230
+#, python-brace-format
+msgid ""
+"Check file:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"Kontrollér filen:\n"
+"{path}\n"
+"\n"
+"(eller slet filen for at gendanne standardindstillingerne)\n"
+"\n"
+
+#: src/sys_actions.py:248
+#, python-brace-format
+msgid ""
+"Failed to read file:\n"
+"{path}\n"
+"\n"
+"{err}"
+msgstr ""
+"Kunne ikke læse filen:\n"
+"{path}\n"
+"\n"
+"{err}"
+
+#: src/sys_actions.py:263
+#, python-brace-format
+msgid ""
+"JSON syntax error in configuration file (line {line}, column {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+msgstr ""
+"JSON-syntaksfejl i konfigurationsfilen (linje {line}, kolonne {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:267
+#, python-brace-format
+msgid ""
+"Configuration error:\n"
+"{err}\n"
+"\n"
+"{hint}"
+msgstr ""
+"Konfigurationsfejl:\n"
+"{err}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:283
+#, python-brace-format
+msgid ""
+"Empty command specified for menu item '{key}'.\n"
+"Enter a valid command or reset the setting.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Tom kommando angivet for menupunktet '{key}'.\n"
+"Indtast en gyldig kommando, eller nulstil indstillingen.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:297
+#, python-brace-format
+msgid ""
+"Invalid command ('cmd') for menu item '{key}'.\n"
+"The value must be a non-empty string or null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Ugyldig kommando ('cmd') for menupunktet '{key}'.\n"
+"Værdien skal være en ikke-tom streng eller null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:307
+#, python-brace-format
+msgid ""
+"Invalid package name ('pkg') for menu item '{key}'.\n"
+"Specify a valid APT package name or set 'pkg' to null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Ugyldigt pakkenavn ('pkg') for menupunktet '{key}'.\n"
+"Angiv et gyldigt APT-pakkenavn, eller sæt 'pkg' til null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:325
+#, python-brace-format
+msgid ""
+"Invalid configuration format for menu item '{key}'.\n"
+"Expected a command string or an object {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Ugyldigt konfigurationsformat for menupunktet '{key}'.\n"
+"Forventede en kommandostreng eller et objekt {{\"cmd\": ..., "
+"\"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:356
 msgid ""
 "No suitable application.\n"
 "Under developing..."
 msgstr ""
-"Intet egnet program fundet.\n"
+"Intet egnet program.\n"
 "Under udvikling..."
 
-#: src/sys_actions.py:146
+#: src/sys_actions.py:367
 #, python-brace-format
-msgid "Command '{bin}' not found."
-msgstr "Kommandoen '{bin}' blev ikke fundet."
+msgid ""
+"Invalid command syntax for menu item '{key}'.\n"
+"Check the quotes and arguments in:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"Ugyldig kommandosyntaks for menupunktet '{key}'.\n"
+"Kontrollér anførselstegn og argumenter i:\n"
+"{path}\n"
+"\n"
+"(eller slet filen for at gendanne standardindstillingerne)\n"
+"\n"
 
 #: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
 #: src/sys_winx_menu.py:204
 msgid "Run"
 msgstr "Kør"
 
-#: src/sys_cmd.py:146
-msgid "Cancel"
-msgstr "Annuller"
-
 #: src/sys_cmd.py:158
 msgid "Type the name of a program, folder, or command to run:"
 msgstr ""
-"Skriv navnet på et program, en mappe eller en kommando, der skal køres:"
+"Indtast navnet på et program, en mappe eller en kommando, der skal køres:"
 
 #: src/sys_cmd.py:173
 msgid "Command... (Tab to complete)"
-msgstr "Kommando... (Tab for autofuldførelse)"
+msgstr "Kommando... (Tab for at fuldføre)"
 
 #: src/sys_cmd.py:332
 #, python-brace-format
@@ -125,7 +283,7 @@ msgstr "Kunne ikke køre '{cmd}'"
 #: src/sys_shortcuts.py:151
 msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
 msgstr ""
-"Der blev fundet uoverensstemmelse i tastaturgenveje til Xfce Start Menu."
+"Der blev registreret uoverensstemmelse i tastaturgenveje for Xfce Start Menu."
 
 #: src/sys_shortcuts.py:156
 msgid ""
@@ -136,18 +294,19 @@ msgid ""
 "\n"
 msgstr ""
 "Vil du rette inkompatible genveje nu?\n"
-"Hvis de forbliver uændrede, kan systemmenuens genvejstaster virke ustabilt.\n"
-"Du kan også gennemgå dem manuelt i: Indstillinger → Tastatur → "
+"Hvis de forbliver uændrede, kan systemmenuens genvejstaster fungere "
+"ustabilt.\n"
+"Du kan også gennemgå dem manuelt under: Indstillinger → Tastatur → "
 "Programgenveje.\n"
 "\n"
 
 #: src/sys_shortcuts.py:163
 msgid "Leave as is"
-msgstr "Lad være"
+msgstr "Lad være som det er"
 
 #: src/sys_shortcuts.py:164
 msgid "Open Keyboard..."
-msgstr "Åbn Tastatur..."
+msgstr "Åbn tastatur..."
 
 #: src/sys_shortcuts.py:165
 msgid "Fix now"
@@ -191,7 +350,7 @@ msgstr "Terminal"
 
 #: src/sys_winx_menu.py:198
 msgid "Terminal (Admin)"
-msgstr "Terminal (Administrator)"
+msgstr "Terminal (administrator)"
 
 #: src/sys_winx_menu.py:200
 msgid "Task Manager"
@@ -211,11 +370,11 @@ msgstr "Søg"
 
 #: src/sys_winx_menu.py:206
 msgid "Shutdown or sign out"
-msgstr "Luk computeren, eller log af"
+msgstr "Luk ned eller log ud"
 
 #: src/sys_winx_menu.py:207
 msgid "Sign out"
-msgstr "Log af"
+msgstr "Log ud"
 
 #: src/sys_winx_menu.py:208
 msgid "Sleep"
@@ -227,7 +386,7 @@ msgstr "Dvale"
 
 #: src/sys_winx_menu.py:210
 msgid "Shutdown"
-msgstr "Luk computeren"
+msgstr "Luk ned"
 
 #: src/sys_winx_menu.py:213
 msgid "Desktop"
@@ -239,4 +398,4 @@ msgstr "Startmenu"
 
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
-msgstr "Tilpasset startmenu og Win+X-systemmenu"
+msgstr "Brugerdefineret startmenu og Win+X-systemmenu"

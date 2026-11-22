@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 12:22+0500\n"
+"POT-Creation-Date: 2026-11-22 21:43+0500\n"
 "PO-Revision-Date: 2026-11-21 12:40+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: Spanish\n"
@@ -28,8 +28,8 @@ msgstr "Menú de aplicaciones"
 msgid "Right-click"
 msgstr "Clic derecho"
 
-#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
-#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+#: src/start-menu-sys.py:32 src/sys_actions.py:51 src/sys_actions.py:81
+#: src/sys_actions.py:356 src/sys_shortcuts.py:153
 msgid "System Menu"
 msgstr "Menú del sistema"
 
@@ -39,15 +39,15 @@ msgstr "Preferencias del panel"
 
 #: src/start-menu-app.py:131
 msgid "Lock Screen"
-msgstr ""
+msgstr "Bloquear pantalla"
 
 #: src/start-menu-app.py:132
 msgid "Log Out"
-msgstr ""
+msgstr "Cerrar sesión"
 
 #: src/start-menu-app.py:134
 msgid "Suspend"
-msgstr ""
+msgstr "Suspender"
 
 #: src/start-menu-app.py:135 src/sys_winx_menu.py:211
 msgid "Restart"
@@ -59,54 +59,213 @@ msgstr "Apagar"
 
 #: src/start-menu-app.py:526
 msgid "Path not found"
-msgstr ""
+msgstr "Ruta no encontrada"
 
 #: src/start-menu-app.py:527
 msgid "No ID"
-msgstr ""
+msgstr "Sin ID"
 
 #: src/start-menu-app.py:528
 msgid "File:"
-msgstr ""
+msgstr "Archivo:"
 
-#: src/sys_actions.py:69
+#: src/sys_actions.py:52
+#, python-brace-format
+msgid ""
+"Failed to execute command '{cmd}':\n"
+"{err}"
+msgstr ""
+"No se pudo ejecutar el comando '{cmd}':\n"
+"{err}"
+
+#: src/sys_actions.py:73
 #, python-brace-format
 msgid ""
 "Application '{bin}' is not installed.\n"
 "Install package '{pkg}' now?"
 msgstr ""
-"La aplicación «{bin}» no está instalada.\n"
-"¿Desea instalar el paquete «{pkg}» ahora?"
+"La aplicación '{bin}' no está instalada.\n"
+"¿Instalar el paquete '{pkg}' ahora?"
 
-#: src/sys_actions.py:82
+#: src/sys_actions.py:86
 msgid "Installation complete. You can close this terminal."
 msgstr "Instalación completada. Puede cerrar esta terminal."
 
-#: src/sys_actions.py:83
+#: src/sys_actions.py:87
 msgid "Installation failed! You can close this terminal."
 msgstr "¡Error en la instalación! Puede cerrar esta terminal."
 
-#: src/sys_actions.py:133
+#: src/sys_actions.py:172
+#, python-brace-format
+msgid ""
+"Continue with\n"
+"{cmd}"
+msgstr ""
+"Continuar con\n"
+"{cmd}"
+
+#: src/sys_actions.py:173 src/sys_cmd.py:146
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/sys_actions.py:189
+#, python-brace-format
+msgid ""
+"Command '{bin}' is not installed on your system, and package '{pkg}' was not "
+"found in available software repositories.\n"
+"\n"
+"Check the 'cmd' and 'pkg' values for '{key}' in:\n"
+"{path}"
+msgstr ""
+"El comando '{bin}' no está instalado en su sistema y no se encontró el "
+"paquete '{pkg}' en los repositorios disponibles.\n"
+"\n"
+"Revise los valores de 'cmd' y 'pkg' para '{key}' en:\n"
+"{path}"
+
+#: src/sys_actions.py:193 src/sys_actions.py:350 src/sys_actions.py:372
+msgid "System Menu — Configuration Error"
+msgstr "Menú del sistema — Error de configuración"
+
+#: src/sys_actions.py:230
+#, python-brace-format
+msgid ""
+"Check file:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"Revise el archivo:\n"
+"{path}\n"
+"\n"
+"(o elimine el archivo para restaurar los valores predeterminados)\n"
+"\n"
+
+#: src/sys_actions.py:248
+#, python-brace-format
+msgid ""
+"Failed to read file:\n"
+"{path}\n"
+"\n"
+"{err}"
+msgstr ""
+"Error al leer el archivo:\n"
+"{path}\n"
+"\n"
+"{err}"
+
+#: src/sys_actions.py:263
+#, python-brace-format
+msgid ""
+"JSON syntax error in configuration file (line {line}, column {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+msgstr ""
+"Error de sintaxis JSON en el archivo de configuración (línea {line}, columna "
+"{col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:267
+#, python-brace-format
+msgid ""
+"Configuration error:\n"
+"{err}\n"
+"\n"
+"{hint}"
+msgstr ""
+"Error de configuración:\n"
+"{err}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:283
+#, python-brace-format
+msgid ""
+"Empty command specified for menu item '{key}'.\n"
+"Enter a valid command or reset the setting.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Se especificó un comando vacío para el elemento '{key}'.\n"
+"Introduzca un comando válido o restablezca la configuración.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:297
+#, python-brace-format
+msgid ""
+"Invalid command ('cmd') for menu item '{key}'.\n"
+"The value must be a non-empty string or null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Comando ('cmd') no válido para el elemento '{key}'.\n"
+"El valor debe ser una cadena no vacía o null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:307
+#, python-brace-format
+msgid ""
+"Invalid package name ('pkg') for menu item '{key}'.\n"
+"Specify a valid APT package name or set 'pkg' to null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Nombre de paquete ('pkg') no válido para el elemento '{key}'.\n"
+"Especifique un nombre de paquete APT válido o establezca 'pkg' en null.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:325
+#, python-brace-format
+msgid ""
+"Invalid configuration format for menu item '{key}'.\n"
+"Expected a command string or an object {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+msgstr ""
+"Formato de configuración no válido para el elemento '{key}'.\n"
+"Se esperaba una cadena de comando o un objeto {{\"cmd\": ..., "
+"\"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:356
 msgid ""
 "No suitable application.\n"
 "Under developing..."
 msgstr ""
-"No se encontró ninguna aplicación adecuada.\n"
+"No hay una aplicación adecuada.\n"
 "En desarrollo..."
 
-#: src/sys_actions.py:146
+#: src/sys_actions.py:367
 #, python-brace-format
-msgid "Command '{bin}' not found."
-msgstr "No se encontró el comando «{bin}»."
+msgid ""
+"Invalid command syntax for menu item '{key}'.\n"
+"Check the quotes and arguments in:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"Sintaxis de comando no válida para el elemento '{key}'.\n"
+"Revise las comillas y los argumentos en:\n"
+"{path}\n"
+"\n"
+"(o elimine el archivo para restaurar los valores predeterminados)\n"
+"\n"
 
 #: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
 #: src/sys_winx_menu.py:204
 msgid "Run"
 msgstr "Ejecutar"
-
-#: src/sys_cmd.py:146
-msgid "Cancel"
-msgstr "Cancelar"
 
 #: src/sys_cmd.py:158
 msgid "Type the name of a program, folder, or command to run:"
@@ -119,7 +278,7 @@ msgstr "Comando... (Tab para completar)"
 #: src/sys_cmd.py:332
 #, python-brace-format
 msgid "Failed to run '{cmd}'"
-msgstr "No se pudo ejecutar «{cmd}»"
+msgstr "No se pudo ejecutar '{cmd}'"
 
 #: src/sys_shortcuts.py:151
 msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
@@ -138,7 +297,7 @@ msgstr ""
 "Si se dejan como están, las teclas de acceso rápido del menú del sistema "
 "pueden funcionar de forma inestable.\n"
 "También puede revisarlos manualmente en: Configuración → Teclado → Atajos de "
-"aplicaciones.\n"
+"aplicación.\n"
 "\n"
 
 #: src/sys_shortcuts.py:163
@@ -191,7 +350,7 @@ msgstr "Terminal"
 
 #: src/sys_winx_menu.py:198
 msgid "Terminal (Admin)"
-msgstr "Terminal (Administrador)"
+msgstr "Terminal (administrador)"
 
 #: src/sys_winx_menu.py:200
 msgid "Task Manager"

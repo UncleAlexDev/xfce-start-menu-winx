@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 12:22+0500\n"
+"POT-Creation-Date: 2026-11-22 21:43+0500\n"
 "PO-Revision-Date: 2026-11-21 12:20+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: Chinese (Simplified)\n"
@@ -28,8 +28,8 @@ msgstr "应用程序菜单"
 msgid "Right-click"
 msgstr "右键单击"
 
-#: src/start-menu-sys.py:32 src/sys_actions.py:77 src/sys_actions.py:134
-#: src/sys_actions.py:147 src/sys_shortcuts.py:153
+#: src/start-menu-sys.py:32 src/sys_actions.py:51 src/sys_actions.py:81
+#: src/sys_actions.py:356 src/sys_shortcuts.py:153
 msgid "System Menu"
 msgstr "系统菜单"
 
@@ -39,15 +39,15 @@ msgstr "面板首选项"
 
 #: src/start-menu-app.py:131
 msgid "Lock Screen"
-msgstr ""
+msgstr "锁定屏幕"
 
 #: src/start-menu-app.py:132
 msgid "Log Out"
-msgstr ""
+msgstr "注销"
 
 #: src/start-menu-app.py:134
 msgid "Suspend"
-msgstr ""
+msgstr "挂起"
 
 #: src/start-menu-app.py:135 src/sys_winx_menu.py:211
 msgid "Restart"
@@ -59,71 +59,227 @@ msgstr "关机"
 
 #: src/start-menu-app.py:526
 msgid "Path not found"
-msgstr ""
+msgstr "未找到路径"
 
 #: src/start-menu-app.py:527
 msgid "No ID"
-msgstr ""
+msgstr "无 ID"
 
 #: src/start-menu-app.py:528
 msgid "File:"
-msgstr ""
+msgstr "文件："
 
-#: src/sys_actions.py:69
+#: src/sys_actions.py:52
+#, python-brace-format
+msgid ""
+"Failed to execute command '{cmd}':\n"
+"{err}"
+msgstr ""
+"执行命令“{cmd}”失败：\n"
+"{err}"
+
+#: src/sys_actions.py:73
 #, python-brace-format
 msgid ""
 "Application '{bin}' is not installed.\n"
 "Install package '{pkg}' now?"
 msgstr ""
-"未安装应用程序“{bin}”。\n"
-"是否立即安装软件包“{pkg}”？"
+"应用程序“{bin}”未安装。\n"
+"现在安装软件包“{pkg}”吗？"
 
-#: src/sys_actions.py:82
+#: src/sys_actions.py:86
 msgid "Installation complete. You can close this terminal."
 msgstr "安装完成。您可以关闭此终端。"
 
-#: src/sys_actions.py:83
+#: src/sys_actions.py:87
 msgid "Installation failed! You can close this terminal."
 msgstr "安装失败！您可以关闭此终端。"
 
-#: src/sys_actions.py:133
+#: src/sys_actions.py:172
+#, python-brace-format
+msgid ""
+"Continue with\n"
+"{cmd}"
+msgstr ""
+"继续使用\n"
+"{cmd}"
+
+#: src/sys_actions.py:173 src/sys_cmd.py:146
+msgid "Cancel"
+msgstr "取消"
+
+#: src/sys_actions.py:189
+#, python-brace-format
+msgid ""
+"Command '{bin}' is not installed on your system, and package '{pkg}' was not "
+"found in available software repositories.\n"
+"\n"
+"Check the 'cmd' and 'pkg' values for '{key}' in:\n"
+"{path}"
+msgstr ""
+"您的系统未安装命令“{bin}”，且在可用的软件仓库中未找到软件包“{pkg}”。\n"
+"\n"
+"请检查以下文件中“{key}”的 'cmd' 和 'pkg' 值：\n"
+"{path}"
+
+#: src/sys_actions.py:193 src/sys_actions.py:350 src/sys_actions.py:372
+msgid "System Menu — Configuration Error"
+msgstr "系统菜单 — 配置错误"
+
+#: src/sys_actions.py:230
+#, python-brace-format
+msgid ""
+"Check file:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"请检查文件：\n"
+"{path}\n"
+"\n"
+"（或删除该文件以恢复默认设置）\n"
+"\n"
+
+#: src/sys_actions.py:248
+#, python-brace-format
+msgid ""
+"Failed to read file:\n"
+"{path}\n"
+"\n"
+"{err}"
+msgstr ""
+"读取文件失败：\n"
+"{path}\n"
+"\n"
+"{err}"
+
+#: src/sys_actions.py:263
+#, python-brace-format
+msgid ""
+"JSON syntax error in configuration file (line {line}, column {col}):\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+msgstr ""
+"配置文件中存在 JSON 语法错误（第 {line} 行，第 {col} 列）：\n"
+"\n"
+"{msg}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:267
+#, python-brace-format
+msgid ""
+"Configuration error:\n"
+"{err}\n"
+"\n"
+"{hint}"
+msgstr ""
+"配置错误：\n"
+"{err}\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:283
+#, python-brace-format
+msgid ""
+"Empty command specified for menu item '{key}'.\n"
+"Enter a valid command or reset the setting.\n"
+"\n"
+"{hint}"
+msgstr ""
+"菜单项“{key}”的命令为空。\n"
+"请输入有效命令或重置此设置。\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:297
+#, python-brace-format
+msgid ""
+"Invalid command ('cmd') for menu item '{key}'.\n"
+"The value must be a non-empty string or null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"菜单项“{key}”的命令 ('cmd') 无效。\n"
+"该值必须是非空字符串或 null。\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:307
+#, python-brace-format
+msgid ""
+"Invalid package name ('pkg') for menu item '{key}'.\n"
+"Specify a valid APT package name or set 'pkg' to null.\n"
+"\n"
+"{hint}"
+msgstr ""
+"菜单项“{key}”的软件包名称 ('pkg') 无效。\n"
+"请指定有效的 APT 软件包名称或将 'pkg' 设为 null。\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:325
+#, python-brace-format
+msgid ""
+"Invalid configuration format for menu item '{key}'.\n"
+"Expected a command string or an object {{\"cmd\": ..., \"pkg\": ...}}.\n"
+"\n"
+"{hint}"
+msgstr ""
+"菜单项“{key}”的配置格式无效。\n"
+"应为命令字符串或对象 {{\"cmd\": ..., \"pkg\": ...}}。\n"
+"\n"
+"{hint}"
+
+#: src/sys_actions.py:356
 msgid ""
 "No suitable application.\n"
 "Under developing..."
 msgstr ""
-"未找到合适的应用程序。\n"
+"没有合适的应用程序。\n"
 "正在开发中..."
 
-#: src/sys_actions.py:146
+#: src/sys_actions.py:367
 #, python-brace-format
-msgid "Command '{bin}' not found."
-msgstr "未找到命令“{bin}”。"
+msgid ""
+"Invalid command syntax for menu item '{key}'.\n"
+"Check the quotes and arguments in:\n"
+"{path}\n"
+"\n"
+"(or delete the file to restore defaults)\n"
+"\n"
+msgstr ""
+"菜单项“{key}”的命令语法无效。\n"
+"请检查以下文件中的引号和参数：\n"
+"{path}\n"
+"\n"
+"（或删除该文件以恢复默认设置）\n"
+"\n"
 
 #: src/sys_cmd.py:138 src/sys_cmd.py:147 src/sys_cmd.py:334
 #: src/sys_winx_menu.py:204
 msgid "Run"
 msgstr "运行"
 
-#: src/sys_cmd.py:146
-msgid "Cancel"
-msgstr "取消"
-
 #: src/sys_cmd.py:158
 msgid "Type the name of a program, folder, or command to run:"
-msgstr "请键入要运行的程序、文件夹或命令的名称："
+msgstr "输入要运行的程序、文件夹或命令的名称："
 
 #: src/sys_cmd.py:173
 msgid "Command... (Tab to complete)"
-msgstr "命令...（按 Tab 键自动补全）"
+msgstr "命令...（按 Tab 键补全）"
 
 #: src/sys_cmd.py:332
 #, python-brace-format
 msgid "Failed to run '{cmd}'"
-msgstr "无法运行“{cmd}”"
+msgstr "运行“{cmd}”失败"
 
 #: src/sys_shortcuts.py:151
 msgid "Keyboard shortcuts mismatch detected for Xfce Start Menu."
-msgstr "检测到 Xfce 开始菜单的键盘快捷键不匹配。"
+msgstr "检测到 Xfce Start Menu 的键盘快捷键不匹配。"
 
 #: src/sys_shortcuts.py:156
 msgid ""
@@ -133,9 +289,9 @@ msgid ""
 "Shortcuts.\n"
 "\n"
 msgstr ""
-"是否立即修复不兼容的快捷键？\n"
-"如果保持原样，系统菜单快捷键可能无法稳定工作。\n"
-"您也可以手动检查：设置 → 键盘 → 应用程序快捷键。\n"
+"现在修复不兼容的快捷键吗？\n"
+"如果保持原样，系统菜单热键可能工作不稳定。\n"
+"您也可以在以下位置手动查看：设置 → 键盘 → 应用程序快捷键。\n"
 "\n"
 
 #: src/sys_shortcuts.py:163
@@ -188,7 +344,7 @@ msgstr "终端"
 
 #: src/sys_winx_menu.py:198
 msgid "Terminal (Admin)"
-msgstr "终端(管理员)"
+msgstr "终端（管理员）"
 
 #: src/sys_winx_menu.py:200
 msgid "Task Manager"
@@ -200,7 +356,7 @@ msgstr "设置"
 
 #: src/sys_winx_menu.py:202
 msgid "File Explorer"
-msgstr "文件资源管理器"
+msgstr "文件管理器"
 
 #: src/sys_winx_menu.py:203
 msgid "Search"
@@ -236,4 +392,4 @@ msgstr "开始菜单"
 
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
-msgstr "自定义开始菜单与 Win+X 系统弹出菜单"
+msgstr "自定义开始菜单和 Win+X 系统弹出菜单"
