@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-22 21:43+0500\n"
+"POT-Creation-Date: 2026-11-23 22:15+0500\n"
 "PO-Revision-Date: 2026-11-21 12:35+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: German\n"
@@ -37,37 +37,82 @@ msgstr "Systemmenü"
 msgid "Panel Preferences"
 msgstr "Leisteneinstellungen"
 
-#: src/start-menu-app.py:131
-msgid "Lock Screen"
-msgstr "Bildschirm sperren"
+#: src/start-menu-app.py:314
+msgid "Search for apps..."
+msgstr ""
 
-#: src/start-menu-app.py:132
-msgid "Log Out"
-msgstr "Abmelden"
+#: src/start-menu-app.py:327
+msgid "Back to categories"
+msgstr ""
 
-#: src/start-menu-app.py:134
-msgid "Suspend"
-msgstr "Bereitschaft"
+#: src/start-menu-app.py:332 src/start-menu-app.py:527
+#: src/start-menu-app.py:745 src/start-menu-app.py:758
+#: src/start-menu-app.py:1132
+msgid "All"
+msgstr ""
 
-#: src/start-menu-app.py:135 src/sys_winx_menu.py:211
-msgid "Restart"
-msgstr "Neustart"
+#: src/start-menu-app.py:340
+msgid "View: List"
+msgstr ""
 
-#: src/start-menu-app.py:136
-msgid "ShutDown"
-msgstr "Herunterfahren"
+#: src/start-menu-app.py:351 src/start-menu-app.py:530
+msgid "View: Category"
+msgstr ""
 
-#: src/start-menu-app.py:526
+#: src/start-menu-app.py:352 src/start-menu-app.py:355
+#: src/start-menu-app.py:531 src/start-menu-app.py:534
+msgid "View: List 1"
+msgstr ""
+
+#: src/start-menu-app.py:353 src/start-menu-app.py:532
+msgid "View: List 2"
+msgstr ""
+
+#: src/start-menu-app.py:383
+#, fuzzy
+msgid "Application"
+msgstr "Anwendungsmenü"
+
+#: src/start-menu-app.py:408
+msgid "Categories"
+msgstr ""
+
+#: src/start-menu-app.py:498
+msgid "Category"
+msgstr ""
+
+#: src/start-menu-app.py:499
+msgid "List 1"
+msgstr ""
+
+#: src/start-menu-app.py:500
+msgid "List 2"
+msgstr ""
+
+#: src/start-menu-app.py:597
 msgid "Path not found"
 msgstr "Pfad nicht gefunden"
 
-#: src/start-menu-app.py:527
-msgid "No ID"
-msgstr "Keine ID"
-
-#: src/start-menu-app.py:528
+#: src/start-menu-app.py:663
 msgid "File:"
 msgstr "Datei:"
+
+#: src/start-menu-app.py:664
+msgid "Categories:"
+msgstr ""
+
+#: src/start-menu-app.py:752
+#, fuzzy
+msgid "Search results"
+msgstr "Suchen"
+
+#: src/start-menu-app.py:792
+msgid "Move to category:"
+msgstr ""
+
+#: src/start-menu-app.py:808
+msgid "Reset to automatic"
+msgstr ""
 
 #: src/sys_actions.py:52
 #, python-brace-format
@@ -386,6 +431,10 @@ msgstr "Ruhezustand"
 msgid "Shutdown"
 msgstr "Herunterfahren"
 
+#: src/sys_winx_menu.py:211
+msgid "Restart"
+msgstr "Neustart"
+
 #: src/sys_winx_menu.py:213
 msgid "Desktop"
 msgstr "Schreibtisch"
@@ -397,3 +446,18 @@ msgstr "Startmenü"
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
 msgstr "Benutzerdefiniertes Startmenü und Win+X-Systemmenü"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Bildschirm sperren"
+
+#~ msgid "Log Out"
+#~ msgstr "Abmelden"
+
+#~ msgid "Suspend"
+#~ msgstr "Bereitschaft"
+
+#~ msgid "ShutDown"
+#~ msgstr "Herunterfahren"
+
+#~ msgid "No ID"
+#~ msgstr "Keine ID"

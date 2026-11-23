@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-22 21:43+0500\n"
+"POT-Creation-Date: 2026-11-23 22:15+0500\n"
 "PO-Revision-Date: 2026-11-21 12:25+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: Arabic\n"
@@ -38,37 +38,82 @@ msgstr "قائمة النظام"
 msgid "Panel Preferences"
 msgstr "تفضيلات الشريط"
 
-#: src/start-menu-app.py:131
-msgid "Lock Screen"
-msgstr "قفل الشاشة"
+#: src/start-menu-app.py:314
+msgid "Search for apps..."
+msgstr ""
 
-#: src/start-menu-app.py:132
-msgid "Log Out"
-msgstr "تسجيل الخروج"
+#: src/start-menu-app.py:327
+msgid "Back to categories"
+msgstr ""
 
-#: src/start-menu-app.py:134
-msgid "Suspend"
-msgstr "تعليق"
+#: src/start-menu-app.py:332 src/start-menu-app.py:527
+#: src/start-menu-app.py:745 src/start-menu-app.py:758
+#: src/start-menu-app.py:1132
+msgid "All"
+msgstr ""
 
-#: src/start-menu-app.py:135 src/sys_winx_menu.py:211
-msgid "Restart"
-msgstr "إعادة التشغيل"
+#: src/start-menu-app.py:340
+msgid "View: List"
+msgstr ""
 
-#: src/start-menu-app.py:136
-msgid "ShutDown"
-msgstr "إيقاف التشغيل"
+#: src/start-menu-app.py:351 src/start-menu-app.py:530
+msgid "View: Category"
+msgstr ""
 
-#: src/start-menu-app.py:526
+#: src/start-menu-app.py:352 src/start-menu-app.py:355
+#: src/start-menu-app.py:531 src/start-menu-app.py:534
+msgid "View: List 1"
+msgstr ""
+
+#: src/start-menu-app.py:353 src/start-menu-app.py:532
+msgid "View: List 2"
+msgstr ""
+
+#: src/start-menu-app.py:383
+#, fuzzy
+msgid "Application"
+msgstr "قائمة التطبيقات"
+
+#: src/start-menu-app.py:408
+msgid "Categories"
+msgstr ""
+
+#: src/start-menu-app.py:498
+msgid "Category"
+msgstr ""
+
+#: src/start-menu-app.py:499
+msgid "List 1"
+msgstr ""
+
+#: src/start-menu-app.py:500
+msgid "List 2"
+msgstr ""
+
+#: src/start-menu-app.py:597
 msgid "Path not found"
 msgstr "المسار غير موجود"
 
-#: src/start-menu-app.py:527
-msgid "No ID"
-msgstr "لا يوجد معرف"
-
-#: src/start-menu-app.py:528
+#: src/start-menu-app.py:663
 msgid "File:"
 msgstr "الملف:"
+
+#: src/start-menu-app.py:664
+msgid "Categories:"
+msgstr ""
+
+#: src/start-menu-app.py:752
+#, fuzzy
+msgid "Search results"
+msgstr "بحث"
+
+#: src/start-menu-app.py:792
+msgid "Move to category:"
+msgstr ""
+
+#: src/start-menu-app.py:808
+msgid "Reset to automatic"
+msgstr ""
 
 #: src/sys_actions.py:52
 #, python-brace-format
@@ -385,6 +430,10 @@ msgstr "سبات"
 msgid "Shutdown"
 msgstr "إيقاف التشغيل"
 
+#: src/sys_winx_menu.py:211
+msgid "Restart"
+msgstr "إعادة التشغيل"
+
 #: src/sys_winx_menu.py:213
 msgid "Desktop"
 msgstr "سطح المكتب"
@@ -396,3 +445,18 @@ msgstr "قائمة ابدأ"
 #: src/start-menu.desktop.in:4
 msgid "Custom Start Menu and Win+X system popup"
 msgstr "قائمة ابدأ مخصصة وقائمة النظام المنبثقة Win+X"
+
+#~ msgid "Lock Screen"
+#~ msgstr "قفل الشاشة"
+
+#~ msgid "Log Out"
+#~ msgstr "تسجيل الخروج"
+
+#~ msgid "Suspend"
+#~ msgstr "تعليق"
+
+#~ msgid "ShutDown"
+#~ msgstr "إيقاف التشغيل"
+
+#~ msgid "No ID"
+#~ msgstr "لا يوجد معرف"
