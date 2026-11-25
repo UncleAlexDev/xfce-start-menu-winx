@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-start-menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 22:15+0500\n"
+"POT-Creation-Date: 2026-11-25 22:00+0500\n"
 "PO-Revision-Date: 2026-11-21 12:40+0500\n"
 "Last-Translator: xfce-start-menu team\n"
 "Language-Team: Spanish\n"
@@ -15,6 +15,156 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/start-menu-app-constants.py:249 src/start-menu-app-constants.py:265
+msgid "Small"
+msgstr ""
+
+#: src/start-menu-app-constants.py:250 src/start-menu-app-constants.py:259
+#: src/start-menu-app-constants.py:266
+msgid "Normal"
+msgstr ""
+
+#: src/start-menu-app-constants.py:251 src/start-menu-app-constants.py:267
+msgid "Large"
+msgstr ""
+
+#: src/start-menu-app-constants.py:252 src/start-menu-app-constants.py:268
+msgid "Huge"
+msgstr ""
+
+#: src/start-menu-app-constants.py:258
+msgid "Tight"
+msgstr ""
+
+#: src/start-menu-app-constants.py:260
+msgid "Relaxed"
+msgstr ""
+
+#: src/start-menu-app-constants.py:261
+msgid "Wide"
+msgstr ""
+
+#: src/start-menu-app-data.py:60
+msgid "Path not found"
+msgstr "Ruta no encontrada"
+
+#: src/start-menu-app-grid.py:88 src/start-menu-app-window.py:566
+msgid "File:"
+msgstr "Archivo:"
+
+#: src/start-menu-app-grid.py:89 src/start-menu-app-window.py:567
+msgid "Categories:"
+msgstr ""
+
+#: src/start-menu-app-pinned.py:40
+msgid "Pinned"
+msgstr ""
+
+#: src/start-menu-app-pinned.py:56
+msgid "No pinned apps yet (right-click an app to pin)"
+msgstr ""
+
+#: src/start-menu-app-pinned.py:266 src/start-menu-app-window.py:683
+msgid "Unpin from top"
+msgstr ""
+
+#: src/start-menu-app-pinned.py:273
+msgid "Move left"
+msgstr ""
+
+#: src/start-menu-app-pinned.py:277
+msgid "Move right"
+msgstr ""
+
+#: src/start-menu-app-window.py:104
+msgid "Icon size"
+msgstr ""
+
+#: src/start-menu-app-window.py:122
+msgid "Item spacing"
+msgstr ""
+
+#: src/start-menu-app-window.py:140
+msgid "Label size"
+msgstr ""
+
+#: src/start-menu-app-window.py:206
+msgid "Search for apps..."
+msgstr ""
+
+#: src/start-menu-app-window.py:212
+msgid "Appearance settings"
+msgstr ""
+
+#: src/start-menu-app-window.py:250
+msgid "Back to categories"
+msgstr ""
+
+#: src/start-menu-app-window.py:264 src/start-menu-app-window.py:472
+#: src/start-menu-app-window.py:635 src/start-menu-app-window.py:648
+#: src/start-menu-app-window.py:962
+msgid "All"
+msgstr ""
+
+#: src/start-menu-app-window.py:287 src/start-menu-app-window.py:475
+msgid "View: Category"
+msgstr ""
+
+#: src/start-menu-app-window.py:288 src/start-menu-app-window.py:293
+#: src/start-menu-app-window.py:477 src/start-menu-app-window.py:480
+msgid "View: List 1"
+msgstr ""
+
+#: src/start-menu-app-window.py:289 src/start-menu-app-window.py:478
+msgid "View: List 2"
+msgstr ""
+
+#: src/start-menu-app-window.py:290 src/start-menu-app-window.py:476
+msgid "View: Grid"
+msgstr ""
+
+#: src/start-menu-app-window.py:319
+#, fuzzy
+msgid "Application"
+msgstr "Menú de aplicaciones"
+
+#: src/start-menu-app-window.py:344
+msgid "Categories"
+msgstr ""
+
+#: src/start-menu-app-window.py:442
+msgid "Category"
+msgstr ""
+
+#: src/start-menu-app-window.py:443
+msgid "Grid"
+msgstr ""
+
+#: src/start-menu-app-window.py:444
+msgid "List 1"
+msgstr ""
+
+#: src/start-menu-app-window.py:445
+msgid "List 2"
+msgstr ""
+
+#: src/start-menu-app-window.py:642
+#, fuzzy
+msgid "Search results"
+msgstr "Buscar"
+
+#: src/start-menu-app-window.py:683
+msgid "Pin to top"
+msgstr ""
+
+#: src/start-menu-app-window.py:690
+msgid "Move to category:"
+msgstr ""
+
+#: src/start-menu-app-window.py:706
+msgid "Reset to automatic"
+msgstr ""
 
 #: src/start-menu-sys.py:31
 msgid "Left-click"
@@ -36,83 +186,6 @@ msgstr "Menú del sistema"
 #: src/start-menu-sys.py:33
 msgid "Panel Preferences"
 msgstr "Preferencias del panel"
-
-#: src/start-menu-app.py:314
-msgid "Search for apps..."
-msgstr ""
-
-#: src/start-menu-app.py:327
-msgid "Back to categories"
-msgstr ""
-
-#: src/start-menu-app.py:332 src/start-menu-app.py:527
-#: src/start-menu-app.py:745 src/start-menu-app.py:758
-#: src/start-menu-app.py:1132
-msgid "All"
-msgstr ""
-
-#: src/start-menu-app.py:340
-msgid "View: List"
-msgstr ""
-
-#: src/start-menu-app.py:351 src/start-menu-app.py:530
-msgid "View: Category"
-msgstr ""
-
-#: src/start-menu-app.py:352 src/start-menu-app.py:355
-#: src/start-menu-app.py:531 src/start-menu-app.py:534
-msgid "View: List 1"
-msgstr ""
-
-#: src/start-menu-app.py:353 src/start-menu-app.py:532
-msgid "View: List 2"
-msgstr ""
-
-#: src/start-menu-app.py:383
-#, fuzzy
-msgid "Application"
-msgstr "Menú de aplicaciones"
-
-#: src/start-menu-app.py:408
-msgid "Categories"
-msgstr ""
-
-#: src/start-menu-app.py:498
-msgid "Category"
-msgstr ""
-
-#: src/start-menu-app.py:499
-msgid "List 1"
-msgstr ""
-
-#: src/start-menu-app.py:500
-msgid "List 2"
-msgstr ""
-
-#: src/start-menu-app.py:597
-msgid "Path not found"
-msgstr "Ruta no encontrada"
-
-#: src/start-menu-app.py:663
-msgid "File:"
-msgstr "Archivo:"
-
-#: src/start-menu-app.py:664
-msgid "Categories:"
-msgstr ""
-
-#: src/start-menu-app.py:752
-#, fuzzy
-msgid "Search results"
-msgstr "Buscar"
-
-#: src/start-menu-app.py:792
-msgid "Move to category:"
-msgstr ""
-
-#: src/start-menu-app.py:808
-msgid "Reset to automatic"
-msgstr ""
 
 #: src/sys_actions.py:52
 #, python-brace-format

@@ -45,9 +45,14 @@ CFLAGS = -Wall -O2 -fPIC \
          $(shell pkg-config --cflags $(PKGS))
 LDFLAGS = -shared $(shell pkg-config --libs $(PKGS))
 
+### # Python modules & Localization files
+### SYS_MODULES = $(wildcard src/sys_*.py)
+### PY_TRANSLATABLE = src/start-menu-sys.py src/start-menu-app.py $(SYS_MODULES)
+
 # Python modules & Localization files
-SYS_MODULES = $(wildcard src/sys_*.py)
-PY_TRANSLATABLE = src/start-menu-sys.py src/start-menu-app.py $(SYS_MODULES)
+ALL_PY_FILES = $(wildcard src/*.py)
+PY_MODULES   = $(filter-out src/start-menu-app.py, $(ALL_PY_FILES))
+PY_TRANSLATABLE = $(ALL_PY_FILES)
 
 DESKTOP_IN = src/start-menu.desktop.in
 DESKTOP_OUT = src/start-menu.desktop
@@ -115,24 +120,23 @@ desktop: mo $(DESKTOP_IN) VERSION
 install: all
 	install -Dm755 $(PLUGIN_LIB) $(DESTDIR)$(LIBDIR)/$(notdir $(PLUGIN_LIB))
 	install -Dm644 $(DESKTOP_OUT) $(DESTDIR)$(DATADIR)/$(notdir $(DESKTOP_OUT))
-	install -Dm644 src/start-menu-sys.py $(DESTDIR)$(PLUGIN_DIR)/start-menu-sys.py
 	install -Dm755 src/start-menu-app.py $(DESTDIR)$(PLUGIN_DIR)/start-menu-app.py
-	@for mod in $(SYS_MODULES); do \
-		install -Dm644 "$$mod" "$(DESTDIR)$(PLUGIN_DIR)/$$(basename $$mod)"; \
+	@for mod in $(PY_MODULES); do \
+	    install -Dm644 "$$mod" "$(DESTDIR)$(PLUGIN_DIR)/$$(basename $$mod)"; \
 	done
 	install -Dm644 VERSION $(DESTDIR)$(PLUGIN_DIR)/VERSION
 	@for lang in $(LANGS); do \
-		mo_file="$(LOCALE_DIR)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
-		if [ -f "$$mo_file" ]; then \
-			install -v -Dm644 "$$mo_file" "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
-		fi; \
+	    mo_file="$(LOCALE_DIR)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
+	    if [ -f "$$mo_file" ]; then \
+	        install -v -Dm644 "$$mo_file" "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo"; \
+	    fi; \
 	done
 	@echo ""
 	@ls -la $(DESTDIR)$(LIBDIR)/$(notdir $(PLUGIN_LIB)) \
 	        $(DESTDIR)$(DATADIR)/$(notdir $(DESKTOP_OUT)) \
 	        $(DESTDIR)$(PLUGIN_DIR)/*.py
 	@for lang in $(LANGS); do \
-		ls -la "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo" ; \
+	    ls -la "$(DESTDIR)$(LOCALEDIR_SYS)/$$lang/LC_MESSAGES/$(DOMAIN).mo" ; \
 	done
 	@echo "Installation complete."
 	@echo ""
