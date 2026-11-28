@@ -11,8 +11,10 @@ import gi
 
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
+gi.require_version("Wnck", "3.0")
 gi.require_version("Libxfce4panel", "2.0")
-from gi.repository import Gdk, Gio, GLib, Gtk, Libxfce4panel
+from gi.repository import Gdk, Gio, GLib, Gtk, Libxfce4panel, Wnck
+
 
 from sys_actions import execute_winx_key
 from sys_i18n import APP_VERSION, _
@@ -21,6 +23,8 @@ from sys_winx_menu import show_winx_popup
 
 
 def setup_plugin(plugin):
+    Wnck.Screen.get_default()
+
     # Проверяем целостность хоткеев после отрисовки панели
     GLib.idle_add(lambda: ensure_plugin_shortcuts(interactive=True) and False)
     button = Libxfce4panel.panel_create_toggle_button()

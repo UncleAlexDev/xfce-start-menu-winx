@@ -1,14 +1,14 @@
 [Xfce Panel]
 Type=X-XFCE-PanelPlugin
-Name[da]=Startmenu  Ver. 0.1.1
-Name[zh_CN]=开始菜单  Ver. 0.1.1
-Name[ar]=قائمة ابدأ  Ver. 0.1.1
-Name[it]=Menu Start  Ver. 0.1.1
-Name[de]=Startmenü  Ver. 0.1.1
-Name[es]=Menú Inicio  Ver. 0.1.1
-Name[ru]=Меню Пуск  Ver. 0.1.1
-Name[vi]=Menu Bắt đầu  Ver. 0.1.1
-Name=Start Menu  Ver. 0.1.1
+Name[da]=Startmenu  Ver. 0.1.2
+Name[zh_CN]=开始菜单  Ver. 0.1.2
+Name[ar]=قائمة ابدأ  Ver. 0.1.2
+Name[it]=Menu Start  Ver. 0.1.2
+Name[de]=Startmenü  Ver. 0.1.2
+Name[es]=Menú Inicio  Ver. 0.1.2
+Name[ru]=Меню Пуск  Ver. 0.1.2
+Name[vi]=Menu Bắt đầu  Ver. 0.1.2
+Name=Start Menu  Ver. 0.1.2
 Comment[da]=Brugerdefineret startmenu og Win+X-systemmenu
 Comment[zh_CN]=自定义开始菜单和 Win+X 系统弹出菜单
 Comment[ar]=قائمة ابدأ مخصصة وقائمة النظام المنبثقة Win+X

@@ -8,7 +8,9 @@ import subprocess
 
 import gi
 gi.require_version("Gtk", "3.0")
+gi.require_version("Wnck", "3.0")
 from gi.repository import Gtk
+from gi.repository import Gtk, Wnck
 
 from sys_cmd import show_run_dialog
 
@@ -17,21 +19,14 @@ try:
 except Exception:
     _ = lambda s: s
 
-### from i18n import _
-
 
 def toggle_show_desktop():
-    """Переключает режим показа рабочего стола через wmctrl или xdotool."""
-    if shutil.which("wmctrl"):
-        try:
-            out = subprocess.check_output(["wmctrl", "-m"], text=True)
-            mode = "off" if "mode: ON" in out else "on"
-            subprocess.Popen(["wmctrl", "-k", mode])
-            return
-        except Exception:
-            pass
-    if shutil.which("xdotool"):
-        subprocess.Popen(["xdotool", "key", "Super_L+d"])
+    """Переключает режим показа рабочего стола через штатный API XFCE (Libwnck)."""
+    screen = Wnck.Screen.get_default()
+    if screen is None:
+        return
+    screen.force_update()
+    screen.toggle_showing_desktop(not screen.get_showing_desktop())
 
 
 def run_command(cmd):
